@@ -1,7 +1,11 @@
-﻿Console.WriteLine("Введите положительное число");
+﻿//Ввод значения
+Console.WriteLine("Введите положительное число");
 int num1 = Convert.ToInt32(Console.ReadLine());
-num1 = Math.Abs(num1); //Защита от бесконечного цикла
+
+//Задание первого значения
 int i = 2;
+
+//Цикл проверки условия и вывода
 while (i <= num1)
 {
     Console.Write($"{i}, ");
