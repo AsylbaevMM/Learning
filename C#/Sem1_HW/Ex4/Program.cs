@@ -7,7 +7,7 @@ Console.WriteLine("Введите третье число");
 int num3 = Convert.ToInt32(Console.ReadLine());
 
 //Присвоение максимальному значению значение первого элемента
-int max = num1;   /
+int max = num1;   
 
 // Сравнение с остальными
 if (num2 > max)
