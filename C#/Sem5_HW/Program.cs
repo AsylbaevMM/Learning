@@ -81,7 +81,7 @@ void SumOdd(int[] numbers)
     {
         sum = sum + numbers[i];
     }
-    Console.WriteLine($"Сумма нечетных элементов в массиве равна {sum}");
+    Console.WriteLine($"Сумма элементов c нечетным индексом в массиве равна {sum}");
     Console.WriteLine();
 }
 
