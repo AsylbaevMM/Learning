@@ -144,7 +144,7 @@ void zadacha34()
 
 void zadacha37()
 {
-    int size = 10;
+    int size = 11;
     int[] numbers = new int[size];
     FillArray(numbers);
     PrintArray(numbers);
@@ -154,6 +154,10 @@ void zadacha37()
     {
         Console.WriteLine($"{numbers[i]} * {numbers[maxIndex - i]} = {numbers[i] * numbers[maxIndex - i]}");
     }
+    if (size % 2 == 1)
+    {
+        Console.WriteLine("Средний элемент массива " + numbers[size/2]);
+    }
     Console.WriteLine();
 }
-zadacha37();
+//zadacha37();
