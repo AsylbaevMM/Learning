@@ -38,7 +38,9 @@ void zadacha41()
         input();
 
     }
+
     input();
+    //Вывод результатов
     PrintArray(numbers);
     Console.WriteLine();
     Console.WriteLine($"Вы ввели {count} чисел, {countless0} из них больше нуля");
@@ -50,6 +52,7 @@ void zadacha41()
 
 void zadacha43()
 {
+    //Взаиомдействие с пользователем
     Console.WriteLine("Введите параметр К1:");
     double K1 = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine("Введите параметр B1:");
@@ -59,11 +62,11 @@ void zadacha43()
     Console.WriteLine("Введите параметр B2:");
     double B2 = Convert.ToInt32(Console.ReadLine());
 
+    //Условия и вывод
     if (K1 - K2 != 0)
     {
     double X = Math.Round((B2 - B1) / (K1 - K2), 2);
     double Y = Math.Round(K1*X + B1, 2);
-
     Console.WriteLine($"Координаты точки пересечения прямых: {X} , {Y}");
     }
     else
@@ -72,5 +75,5 @@ void zadacha43()
     }
 }
 
-//zadacha41();
+zadacha41();
 zadacha43();
