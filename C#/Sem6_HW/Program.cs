@@ -46,7 +46,7 @@ void zadacha41()
     Console.WriteLine($"Вы ввели {count} чисел, {countless0} из них больше нуля");
     Console.WriteLine();
 }
-
+zadacha41();
 
 
 
@@ -75,5 +75,5 @@ void zadacha43()
     }
 }
 
-zadacha41();
+
 zadacha43();
