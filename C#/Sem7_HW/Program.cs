@@ -63,6 +63,7 @@ void PrintArrayDouble(double[,] numbers)
 
 void zadacha47()
 {
+    Console.WriteLine("Задача 47");
     Console.WriteLine("Введите количество строк");
     int rows = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine("Введите количество столбцов");
@@ -70,10 +71,12 @@ void zadacha47()
     double[,] numbers = new double[rows, columns];
     FillArrayDouble(numbers);
     PrintArrayDouble(numbers);
+    Console.WriteLine();
 }
 
 void Zadacha50()
 {
+    Console.WriteLine("Задача 50");
     Random random = new Random();
     int rows = random.Next(5, 10);
     int columns = random.Next(5, 10);
@@ -88,16 +91,18 @@ void Zadacha50()
 
     if (row < rows && column < columns)
     {
-        Console.WriteLine($"Значение элемента с индексами [{row},{column}] равно {numbers[row, column]} ");
+        Console.WriteLine($"Значение элемента с индексом [{row},{column}] равно {numbers[row, column]} ");
     }
     else
     {
         Console.WriteLine("Элемент не найден");
     }
+    Console.WriteLine();
 }
 
 void Zadacha52()
 {
+    Console.WriteLine("Задача 52");
     Random random = new Random();
     int rows = random.Next(5, 10);
     int columns = random.Next(5, 10);
@@ -115,6 +120,7 @@ void Zadacha52()
         }
         Console.WriteLine($"Среднее арифметическое {j+1} столбца = {Math.Round(sum/(rows), 2)}");
     }
+    Console.WriteLine();
 }
 
 
