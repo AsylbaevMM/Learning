@@ -50,7 +50,7 @@ void Zadacha54()
         {
             for (int k = j + 1; k < columns; k++)
             {
-                if (numbers[i, k] < numbers[i, j])
+                if (numbers[i, k] > numbers[i, j])
                 {
                     (numbers[i, k], numbers[i, j]) = (numbers[i, j], numbers[i, k]);
                 }
@@ -199,7 +199,7 @@ void Extra()
 
 
 
-//Zadacha54();
+Zadacha54();
 //Zadacha56();
 //Zadacha58();
 //Extra();
