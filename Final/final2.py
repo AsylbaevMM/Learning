@@ -1,5 +1,5 @@
 
-array = [input() for i in range(int(input('Введите количество элементов массива >>> ')))]
+array = input('Введите элементы массива через пробел >>> ').split()
 print(f'Ваш массив: {array} ')
-result_array = [i for i in array if len(str(i)) <= 3]
+result_array = [i for i in array if len(i) <= 3]
 print(f'Обработанный массив: {result_array}')
