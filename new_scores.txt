@@ -1,0 +1,5 @@
+Washington <function <lambda> at 0x0000028DF7FAFB50> 83
+Adams <function <lambda> at 0x0000028DF7FAFB50> 86
+Kingsman <function <lambda> at 0x0000028DF7FAFB50> 100
+MacDonald <function <lambda> at 0x0000028DF7FAFB50> 95
+Thomson <function <lambda> at 0x0000028DF7FAFB50> 98
