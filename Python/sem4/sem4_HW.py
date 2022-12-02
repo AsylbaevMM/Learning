@@ -98,20 +98,9 @@ def ex5():
         result_string += ' = 0'      #не забываем добавить  "= 0" в конце
         print(result_string, file = output_file)  
         
+
+ex1()
+ex3a()
+ex3b()
+ex4()
 ex5()
-        
-
-
-
-
-
-
-
-
-
-
-
-#ex1()
-#ex3a()
-#ex3b()
-#ex4()
