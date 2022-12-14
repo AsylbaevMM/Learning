@@ -1,1 +1,3 @@
-Year:2022 Month:12 Day:14 Hour:15 Minute:17 Second:473/7 + 5/6 = 53/42Year:2022 Month:12 Day:14 Hour:15 Minute:18 Second:305/6  - 3/4 = 1/12Year:2022 Month:12 Day:14 Hour:17 Minute:13 Second:385 + 4j + 6 + 7j = 5 + 4j6 + 7jYear:2022 Month:12 Day:14 Hour:17 Minute:34 Second:234+6j + 3-7j = (7-1j)Year:2022 Month:12 Day:14 Hour:17 Minute:34 Second:465-7j * 3+6j = (57+9j)
+
+Year:2022 Month:12 Day:14 Hour:18 Minute:57 Second:05   5/8 * 7/9 = 35/72
+Year:2022 Month:12 Day:14 Hour:18 Minute:57 Second:25   5-7j / 3+5j = (-0.5882352941176471-1.352941176470588j)
