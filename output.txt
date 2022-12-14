@@ -1,0 +1,1 @@
+stringYear:2022 Month:12 Day:14 Hour:15 Minute:05 Second:313/7 * 5/8 = 15/56Year:2022 Month:12 Day:14 Hour:15 Minute:06 Second:343/5 + 6/9 = 19/15Year:2022 Month:12 Day:14 Hour:15 Minute:15 Second:4455 - 55 = 0

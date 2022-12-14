@@ -7,7 +7,7 @@ def variable_input():
     a = input("Введите первое число >>> ")
     b = input("Введите второе число >>> ")
     move = input("Введите действие >>> ")
-    while move not in '+-*/':
+    while move not in ['+', '-', '*', '/']:
         print('Вы ввели некорректное действие')
         move = input("Введите корректное действие >>> ")
     return a, b, move
@@ -24,18 +24,21 @@ def result_string(func, a, b, move):
 def main():
     choice = input("Выберите тип чисел: 1.Комплексные, 2.Рациональные >>> ")
 
+    while choice not in '12':
+        print('Вы ввели некорректное значение')
+        choice = input("Выберите тип чисел: 1.Комплексные, 2.Рациональные >>> ")
+
     if choice == '1':
-        print("Вы выбрали комплексные числа. Введите числа в формате 'a + bj' >>> ")
+        print("Вы выбрали комплексные числа. Введите числа в формате 'a+bj' >>> ")
         result = result_string(calc_complex_main, *variable_input())
         final(result)
 
-    elif choice == '2':
-        print("Вы выбрали рациональные числаю Введите числа в формате 'a/b' >>> ")
+    if choice == '2':
+        print("Вы выбрали рациональные числа. Введите числа в формате 'a/b' >>> ")
         result = result_string(calc_fraction_main, *variable_input())
         final(result)
 
-    else:
-        print('Вы ввели неверное значение')    
+   
 
     again = input('Для нового подсчета введите 1, для выхода нажмите Enter >>> ')
     
