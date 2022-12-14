@@ -2,9 +2,6 @@
 from calc_fraction import calc_fraction_main
 from calc_complex import calc_complex_main
 from log import log_main
-import os
-
-
 
 def variable_input():
     a = input("Введите первое число >>> ")
@@ -32,7 +29,7 @@ def main():
         choice = input("Выберите тип чисел: 1.Комплексные, 2.Рациональные >>> ")
 
     if choice == '1':
-        print("Вы выбрали комплексные числа. Введите числа в формате 'a + bj' >>> ")
+        print("Вы выбрали комплексные числа. Введите числа в формате 'a+bj' >>> ")
         result = result_string(calc_complex_main, *variable_input())
         final(result)
 
