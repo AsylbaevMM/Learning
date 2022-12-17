@@ -1,2 +1,5 @@
 def writer_main(args):
-    pass
+    with open ('data.txt','a') as data:
+        list= ' '.join(map(str,args)) + ' 1\n'  
+        data.write(list)
+        
