@@ -4,3 +4,5 @@ def reader_main(family):
         for i in range(len(list)):
             if family not in list:
                 return list[i] 
+
+print(reader_main('Иванов'))

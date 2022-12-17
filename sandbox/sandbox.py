@@ -1,15 +1,8 @@
-while True:
-    mode = input()
+def reader_main(family):
+   with open ('data.txt','r') as data:
+        list = data.read().split(' 1')
+        for i in range(len(list)):
+            if family not in list:
+                return list[i] 
 
-    if mode == '1':
-        print('a')
-        break
-
-    elif mode == '2':
-        print('b')
-        break
-    else:
-        print('q')
-
-
-print('c')
+print(reader_main('Петров'))
