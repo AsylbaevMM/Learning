@@ -1,15 +1,11 @@
-while True:
-    mode = input()
-
-    if mode == '1':
-        print('a')
-        break
-
-    elif mode == '2':
-        print('b')
-        break
-    else:
-        print('q')
+def writer_main(args):
+    with open ('data.txt','a') as data:
+        print(f'{"<word>".join(args)}', file = data)
 
 
-print('c')
+def reader_main(word):
+    with open ('data.txt','r') as data:
+        list = data.read().split('\n')
+        for i in list:
+            if word in i:
+                return i.split('<word>')
