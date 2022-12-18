@@ -3,7 +3,7 @@ def reader_main(family):
         list = data.read().split(' 1')
         for i in range(len(list)):
             if family not in list:
-                spis = list[i].split
+                spis = list[i].split()
                 return spis 
 
-print(reader_main('Иванов'))
+

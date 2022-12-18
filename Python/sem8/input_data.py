@@ -10,3 +10,5 @@ def input_data_main(format):
         phone_number = input("Введите номер телефона: ")
         comment = input("Введите комментарий: ")
         return [last_name, first_name, phone_number, comment]
+
+

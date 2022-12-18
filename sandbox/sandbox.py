@@ -1,8 +1,11 @@
-def reader_main(family):
-   with open ('data.txt','r') as data:
-        list = data.read().split(' 1')
-        for i in range(len(list)):
-            if family not in list:
-                return list[i] 
+def writer_main(args):
+    with open ('data.txt','a') as data:
+        print(f'{"<word>".join(args)}', file = data)
 
-print(reader_main('Петров'))
+
+def reader_main(word):
+    with open ('data.txt','r') as data:
+        list = data.read().split('\n')
+        for i in list:
+            if word in i:
+                return i.split('<word>')

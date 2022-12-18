@@ -10,3 +10,5 @@ def output_data_main(args):
         print(" ".join(args))
     if choice == '2':
         print("\n".join(args))
+
+#output_data_main(['Иванов', 'Иван', '987654321', 'Текстовое описание'])
