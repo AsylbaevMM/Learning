@@ -17,6 +17,7 @@ def output_data_main(args):
         if choice == '2':
             for word in args:
                 print("\n".join(word))
+                print()
 
 
     

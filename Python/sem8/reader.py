@@ -6,10 +6,10 @@ def reader_main(family):
         list = data.read().split('\n')
 
         for i in range(len(list)):
-            if family in list[i]:
+            if family.lower() in list[i].lower():
                 spis = list[i].split('<word>')
                 result.append(spis)
                
         return result   
-print(reader_main('Иванов'))
+#print(reader_main('Иванов'))
 
