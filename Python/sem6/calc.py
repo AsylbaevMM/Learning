@@ -76,3 +76,5 @@ def calc_main():
     data = parce_input(input('Bведите выражение >>> '))  
     
     print(f'Результат: {calculate(data)}')
+
+calc_main()

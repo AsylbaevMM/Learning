@@ -4,6 +4,7 @@ def reader_main(family):
         result = []
         spis = []
         list = data.read().split('\n')
+
         for i in range(len(list)):
             if family in list[i]:
                 spis = list[i].split('<word>')
@@ -11,3 +12,4 @@ def reader_main(family):
                
         return result   
 print(reader_main('Иванов'))
+
