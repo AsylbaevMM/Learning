@@ -1,6 +1,13 @@
+
+
+
 def calc_main(string):
-    def parce_input(chars):                 # Функция для обработки входных данных, избавляется от пробелов и выдает массив из операций, скобок и чисел 
-        chars = chars.replace(' ', '')      # Теперь можно не соблюдать пробелы при вводе данных
+    from datetime import datetime
+    def parce_input(chars):
+        try:                 # Функция для обработки входных данных, избавляется от пробелов и выдает массив из операций, скобок и чисел 
+            chars = chars.replace(' ', '')   # Теперь можно не соблюдать пробелы при вводе данных
+        except:
+            pass     
         result = []
         temp = ''
         for i in range(len(chars)): 
@@ -72,8 +79,11 @@ def calc_main(string):
                 args.pop(ind_deg)
         
         return args[0]
+    result = calculate(parce_input(string))
+    with open ('log_calc.txt','a') as output_file:
+        data = datetime.now().strftime('%Y.%m.%d %H:%M:%S  ')
+        output_file.writelines(f'{data} {string} = {result}\n')
+    return f'результат равен {result}'
 
-     
-    
-    return calculate(parce_input(string))
+
 
