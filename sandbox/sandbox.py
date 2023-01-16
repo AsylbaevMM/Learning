@@ -1,7 +1,10 @@
 
 
-custom_isinstance = lambda objects, typeinfo: sum[isinstance(i, typeinfo) for i in objects]
+def is_lucky_ticket(arg):
+    if ' ' in arg:
+        arg = arg.split()[-1]
+    middle = len(arg)//2
+    return sum([int(i) for i in arg[:middle]]) == sum([int(i) for i in arg[-middle:]])
 
 
-numbers = [1, 'two', 3.0, 'четыре', 5, 6.0]
-print(custom_isinstance(numbers, int))
+print(is_lucky_ticket('A/5 21171'))
