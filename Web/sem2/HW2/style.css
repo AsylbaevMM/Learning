@@ -1,0 +1,31 @@
+body {
+    background-color: rgb(150, 232, 177);
+}
+
+h1 {
+    color: blue;
+}
+
+em {
+    color: brown;
+}
+
+.ul_list {
+    color: blue;
+    font-size: 2rem;
+}
+
+.ol_list{
+    font-family: 'Grooving' ;
+    font-size: 2rem;
+}
+
+@font-face {
+	font-family: 'Grooving';
+	src: url('fonts/grooving.eot'); /* IE 9 Compatibility Mode */
+	src: url('fonts/grooving.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('fonts/grooving.woff2') format('woff2'), /* Super Modern Browsers */
+		url('fonts/grooving.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('fonts/grooving.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('fonts/grooving.svg#grooving') format('svg'); /* Chrome < 4, Legacy iOS */
+}
