@@ -3,5 +3,13 @@
     // Наведите указатель мыши, чтобы просмотреть описания существующих атрибутов.
     // Для получения дополнительной информации посетите: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": []
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch program",
+            "request": "launch",
+            "mainClass": "Java.sem_1.program",
+            "projectName": "Learning_53b08300"
+        }
+    ]
 }
