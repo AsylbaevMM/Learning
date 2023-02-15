@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.LinkedList;
+
 public class Relationships {
 
 
@@ -21,5 +23,6 @@ public class Relationships {
             //System.out.println(husband1.getName() + " married " + husband2.getName() + ". Congratulations!");
         }
     }
+
 
 }

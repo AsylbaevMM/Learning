@@ -2,40 +2,28 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        Person zakhar = new Person("Zakhar", 65, "male");
-        Person ludmila = new Person("Ludmila", 60, "female");
-        Person prohor = new Person("Prohor", 90, "male");
+        Person.addPerson("Zakhar", 65, "male");
+        Person.addPerson("Ludmila", 60, "female");
+        Person.addPerson("Prohor", 90, "male");
 
-        Person vasya = new Person("Vasya", 25, "male");
-        Person masha = new Person("Masha", 25, "female");
-        Person dima = new Person("Dima", 5, "male");
-        Person dasha = new Person("Dasha", 3, "female");
+        Person.addPerson("Vasya", 25, "male");
+        Person.addPerson("Masha", 25, "female");
+        Person.addPerson("Dima", 5, "male");
+        Person.addPerson("Dasha", 3, "female");
 
-        Person lera = new Person("Lera", 30, "female");
-        Person vitya = new Person("Vitya", 35, "male");
-        Person maks = new Person("Maks", 6, "male");
-        Person sonya = new Person("Sonya", 4, "female");
+        Person.addPerson("Lera", 30, "female");
+        Person.addPerson("Vitya", 35, "male");
+        Person.addPerson("Maks", 6, "male");
+        Person.addPerson("Sonya", 4, "female");
 
         Relationships wedding = new Relationships();
-        wedding.wedding(zakhar, ludmila);
-        wedding.wedding(lera, vitya);
-        wedding.wedding(vasya, masha);
+        wedding.wedding(Person.getPersonList().get("Zakhar"), Person.getPersonList().get("Ludmila"));
         Relationships birth = new Relationships();
-        birth.makeParent(prohor, masha);
-        birth.makeParent(zakhar, vasya);
-        birth.makeParent(ludmila, vitya);
-        birth.makeParent(vitya, maks);
-        birth.makeParent(lera, sonya);
-        birth.makeParent(vasya, dima);
-        birth.makeParent(vasya, dasha);
+        birth.makeParent(Person.getPersonList().get("Zakhar"), Person.getPersonList().get("Vasya"));
+        Person.getPersonList().get("Vasya").showParents();
 
 
-        lera.showChildrens();
-        sonya.showParents();
-        sonya.showGrandparents();
-        ludmila.showGrandchilds();
-        dima.showBrothers();
-        dima.showUncles();
+
     }
 
 

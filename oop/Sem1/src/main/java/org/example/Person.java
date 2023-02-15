@@ -4,7 +4,7 @@ import javax.imageio.metadata.IIOMetadataFormatImpl;
 import javax.sound.midi.Soundbank;
 import java.util.LinkedList;
 
-public class Person {
+public class Person extends Tree{
     private String name;
     private int age;
 
@@ -116,7 +116,7 @@ public class Person {
         System.out.println();
     }
 
-    public void showUncles() {    // Метод для вывода имен всех дяд и тёть
+/*    public void showUncles() {    // Метод для вывода имен всех дяд и тёть
         LinkedList<Person> temp = new LinkedList<>();
         for (int i = 0; i < parents.size(); i++) {
             for (int j = 0; j < parents.get(i).getParents().size(); j++) {
@@ -138,7 +138,7 @@ public class Person {
         System.out.println();
 
 
-    }
+    }*/
 
 
 
