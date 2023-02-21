@@ -4,14 +4,12 @@ import java.util.ArrayList;
 
 public interface GenTree {
 
-    void wedding(Person husband1, Person husband2) ;
+    void wedding(String husband1, String husband2) ;
 
 
-    void birth(Person parent, Person child);
+    void birth(String parent, String child);
 
     void makeParent(Person parent, Person child);
-
-
 
     ArrayList getChildren(String name);
 
@@ -20,4 +18,5 @@ public interface GenTree {
     ArrayList getParents(String name);
 
     void showParents(String name);
+
 }
