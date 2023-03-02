@@ -1,24 +1,10 @@
 package org.example;
 
-public class Complex {
-    float real;
-    float imagine;
+public class Complex extends Digit {
 
-    public Complex(float real) {  // Конструктор с дефолтной нулевой мнимой частью для наследования рациональными числами
-        this.real = real;
-        this.imagine = 0;
-    }
     public Complex(float real, float imagine) {
-        this.real = real;
-        this.imagine = imagine;
-    }
-
-    public float getReal() {
-        return real;
-    }
-
-    public float getImagine() {
-        return imagine;
+        super.real = real;
+        super.imagine = imagine;
     }
 
     @Override

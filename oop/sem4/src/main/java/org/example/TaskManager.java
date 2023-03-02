@@ -16,7 +16,7 @@ public class TaskManager<ObjectMapper> {
 
 
     public void  addTask(String name, String author, int priority){   // Создает задачу с уникальным ID
-        Task task = new Task(name, author, lastID,  priority);
+        Task task = new Task(name, author, lastID, priority, TaskView.enterString(name), DeadlineMaker.createDL(name));
         taskList.put(lastID, task);
         lastID++;
         System.out.println("Task " + name+ " by " + author + " created!" );
@@ -26,7 +26,8 @@ public class TaskManager<ObjectMapper> {
 
     public void saveData(){  // Записывает все задачи в файл tasks.json
         try (PrintWriter out = new PrintWriter("tasks.json")) {
-            out.append(taskList.toString());
+            out.append(taskList.toString()+ "\n");
+
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -20,20 +20,14 @@ public class Task implements Comparable<Task>{
     String author;
 
     // конструктор интерактивен, запрашивает описание и количество дней на выполнение задачи
-    public Task(String name, String author, Integer  id, int priority) {
+    public Task(String name, String author, Integer  id, int priority, String description, Date deadline) {
         this.name = name;
         this.author = author;
         this.id = id;
         this.priority = priority;
         this.created = new Date();
-        Scanner in = new Scanner(System.in);
-        System.out.println("Input description for " + name + ":");
-        this.description = in.nextLine();
-        System.out.println("How many days to deadline for " + name + "?" );
-        int daysBeforeDeadline = in.nextInt();
-        Calendar calendar = new GregorianCalendar();
-        calendar.add(Calendar.DAY_OF_MONTH, daysBeforeDeadline);
-        this.deadline = calendar.getTime();
+        this.description = description;
+        this.deadline = deadline;
     }
 
     public int getId() {

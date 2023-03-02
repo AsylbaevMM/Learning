@@ -1,18 +1,14 @@
 package org.example;
 
-public class Ratio extends Complex{
+public class Ratio extends Digit{
 
     // Так как рациональные числа являются частным случаем комплексных, наследуем их от комплексных
-    float real;
+
     public Ratio(float real) {
-        super(real);
+        super.real = real;
     }
 
 
-
-    public float  getValue(){
-        return real;
-    }
 
     @Override
     public String toString() {
