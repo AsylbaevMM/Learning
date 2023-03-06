@@ -1,1 +1,2 @@
-print(__import__('re').sub("\w+", lambda x: "<kw>" if x.group(0).lower() in [i.lower() for i in __import__("keyword").kwlist] else x.group(0), input(), flags =__import__('re').I))
+
+
