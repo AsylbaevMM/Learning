@@ -1,17 +1,16 @@
-
-
-stroka1='пара-ра-рам рам-пам-папам па-ра-па-дам'
-vowels=['a','e','ё','и','й','o','у','ы','э','ю','я']
-phrases=stroka1.split()
-if len(phrases)<2:
-   print('Количество фраз должно быть больше одной!')
-else:
-   countVowels=[]
-
-   for i in phrases:
-       countVowels.append(len([x for x in i if x.lower() in vowels]))
-
-if len (set(countVowels))==1:
-   print('Парам пам-пам')
-else:
-   print('Пам парам')
+def change_name(file_name, ch_name):
+    data=open(file_name,'r')
+    list_name=list()
+    for line in data:
+        if ch_name in line:
+            new_name=input("Введите новеое ФИО и номер телефона:")
+            list_name.append(new_name+"\n")
+            continue
+        list_name.append(line)
+    data.close()
+    list_name=list(filter(lambda x:x !="",list_name))
+    data=open(file_name,'w')
+    for item in list_name:
+        data.write(item)
+    data.close()
+    print()
