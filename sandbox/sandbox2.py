@@ -1,3 +1,3 @@
 
 
-print(dir(tuple))
+print(sorted('qwertyu'))

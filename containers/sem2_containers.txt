@@ -1,0 +1,203 @@
+mmtester@mm-VB:~$ sudo su
+[sudo] пароль для mmtester: 
+root@mm-VB:/home/mmtester# lxd init
+Would you like to use LXD clustering? (yes/no) [default=no]: n
+Do you want to configure a new storage pool? (yes/no) [default=yes]: 
+Name of the new storage pool [default=default]: 
+Name of the storage backend to use (btrfs, ceph, dir, lvm, zfs) [default=zfs]: 
+Create a new ZFS pool? (yes/no) [default=yes]: 
+Would you like to use an existing empty block device (e.g. a disk or partition)? (yes/no) [default=no]: 
+Size in GiB of the new loop device (1GiB minimum) [default=5GiB]: 
+Would you like to connect to a MAAS server? (yes/no) [default=no]: 
+Would you like to create a new local network bridge? (yes/no) [default=yes]: 
+What should the new bridge be called? [default=lxdbr0]: 
+What IPv4 address should be used? (CIDR subnet notation, “auto” or “none”) [default=auto]: 
+What IPv6 address should be used? (CIDR subnet notation, “auto” or “none”) [default=auto]: 
+Would you like the LXD server to be available over the network? (yes/no) [default=no]: 
+Would you like stale cached images to be updated automatically? (yes/no) [default=yes]: 
+Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]: 
+
+
+root@mm-VB:/home/mmtester# 
+root@mm-VB:/home/mmtester# 
+root@mm-VB:/home/mmtester# lxc storage list
++---------+--------+--------------------------------------------+-------------+---------+---------+
+|  NAME   | DRIVER |                   SOURCE                   | DESCRIPTION | USED BY |  STATE  |
++---------+--------+--------------------------------------------+-------------+---------+---------+
+| default | zfs    | /var/snap/lxd/common/lxd/disks/default.img |             | 1       | CREATED |
++---------+--------+--------------------------------------------+-------------+---------+---------+
+root@mm-VB:/home/mmtester# lxc network list
++---------+----------+---------+-----------------+---------------------------+-------------+---------+---------+
+|  NAME   |   TYPE   | MANAGED |      IPV4       |           IPV6            | DESCRIPTION | USED BY |  STATE  |
++---------+----------+---------+-----------------+---------------------------+-------------+---------+---------+
+| docker0 | bridge   | NO      |                 |                           |             | 0       |         |
++---------+----------+---------+-----------------+---------------------------+-------------+---------+---------+
+| enp0s3  | physical | NO      |                 |                           |             | 0       |         |
++---------+----------+---------+-----------------+---------------------------+-------------+---------+---------+
+| lxcbr0  | bridge   | NO      |                 |                           |             | 0       |         |
++---------+----------+---------+-----------------+---------------------------+-------------+---------+---------+
+| lxdbr0  | bridge   | YES     | 10.150.229.1/24 | fd42:8a6c:71d4:71a9::1/64 |             | 1       | CREATED |
++---------+----------+---------+-----------------+---------------------------+-------------+---------+---------+
+root@mm-VB:/home/mmtester# lxc remote list
++-----------------+------------------------------------------+---------------+-------------+--------+--------+--------+
+|      NAME       |                   URL                    |   PROTOCOL    |  AUTH TYPE  | PUBLIC | STATIC | GLOBAL |
++-----------------+------------------------------------------+---------------+-------------+--------+--------+--------+
+| images          | https://images.linuxcontainers.org       | simplestreams | none        | YES    | NO     | NO     |
++-----------------+------------------------------------------+---------------+-------------+--------+--------+--------+
+| local (current) | unix://                                  | lxd           | file access | NO     | YES    | NO     |
++-----------------+------------------------------------------+---------------+-------------+--------+--------+--------+
+| ubuntu          | https://cloud-images.ubuntu.com/releases | simplestreams | none        | YES    | YES    | NO     |
++-----------------+------------------------------------------+---------------+-------------+--------+--------+--------+
+| ubuntu-daily    | https://cloud-images.ubuntu.com/daily    | simplestreams | none        | YES    | YES    | NO     |
++-----------------+------------------------------------------+---------------+-------------+--------+--------+--------+
+root@mm-VB:/home/mmtester# lxc image -c dasut list ubuntu: | head -n 11
++-------------------------------------------------+--------------+-----------+-------------------------------+-----------------+
+|                   DESCRIPTION                   | ARCHITECTURE |   SIZE    |          UPLOAD DATE          |      TYPE       |
++-------------------------------------------------+--------------+-----------+-------------------------------+-----------------+
+| ubuntu 12.04 LTS amd64 (release) (20170502)     | x86_64       | 152.61MB  | May 2, 2017 at 12:00am (UTC)  | CONTAINER       |
++-------------------------------------------------+--------------+-----------+-------------------------------+-----------------+
+| ubuntu 12.04 LTS amd64 (release) (20170502)     | x86_64       | 248.63MB  | May 2, 2017 at 12:00am (UTC)  | VIRTUAL-MACHINE |
++-------------------------------------------------+--------------+-----------+-------------------------------+-----------------+
+| ubuntu 12.04 LTS armhf (release) (20170502)     | armv7l       | 134.87MB  | May 2, 2017 at 12:00am (UTC)  | CONTAINER       |
++-------------------------------------------------+--------------+-----------+-------------------------------+-----------------+
+| ubuntu 12.04 LTS armhf (release) (20170502)     | armv7l       | 221.31MB  | May 2, 2017 at 12:00am (UTC)  | VIRTUAL-MACHINE |
++-------------------------------------------------+--------------+-----------+-------------------------------+-----------------+
+root@mm-VB:/home/mmtester# cat /etc/default/lxc-net
+# This file is auto-generated by lxc.postinst if it does not
+# exist.  Customizations will not be overridden.
+# Leave USE_LXC_BRIDGE as "true" if you want to use lxcbr0 for your
+# containers.  Set to "false" if you'll use virbr0 or another existing
+# bridge, or mavlan to your host's NIC.
+USE_LXC_BRIDGE="true"
+
+# If you change the LXC_BRIDGE to something other than lxcbr0, then
+# you will also need to update your /etc/lxc/default.conf as well as the
+# configuration (/var/lib/lxc/<container>/config) for any containers
+# already created using the default config to reflect the new bridge
+# name.
+# If you have the dnsmasq daemon installed, you'll also have to update
+# /etc/dnsmasq.d/lxc and restart the system wide dnsmasq daemon.
+LXC_BRIDGE="lxcbr0"
+LXC_ADDR="10.0.3.1"
+LXC_NETMASK="255.255.255.0"
+LXC_NETWORK="10.0.3.0/24"
+LXC_DHCP_RANGE="10.0.3.2,10.0.3.254"
+LXC_DHCP_MAX="253"
+# Uncomment the next line if you'd like to use a conf-file for the lxcbr0
+# dnsmasq.  For instance, you can use 'dhcp-host=mail1,10.0.3.100' to have
+# container 'mail1' always get ip address 10.0.3.100.
+#LXC_DHCP_CONFILE=/etc/lxc/dnsmasq.conf
+
+# Uncomment the next line if you want lxcbr0's dnsmasq to resolve the .lxc
+# domain.  You can then add "server=/lxc/10.0.3.1' (or your actual $LXC_ADDR)
+# to your system dnsmasq configuration file (normally /etc/dnsmasq.conf,
+# or /etc/NetworkManager/dnsmasq.d/lxc.conf on systems that use NetworkManager).
+# Once these changes are made, restart the lxc-net and network-manager services.
+# 'container1.lxc' will then resolve on your host.
+#LXC_DOMAIN="lxc"
+root@mm-VB:/home/mmtester# cat /etc/lxc/default.conf
+lxc.net.0.type = veth
+lxc.net.0.link = lxcbr0
+lxc.net.0.flags = up
+lxc.net.0.hwaddr = 00:16:3e:xx:xx:xx
+root@mm-VB:/home/mmtester# ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:a7:e2:ef brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.106/24 brd 192.168.0.255 scope global dynamic noprefixroute enp0s3
+       valid_lft 5858sec preferred_lft 5858sec
+    inet6 fe80::edf5:1aff:1546:5c61/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+3: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+    link/ether 02:42:ec:93:6d:9c brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+       valid_lft forever preferred_lft forever
+4: lxcbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default qlen 1000
+    link/ether 00:16:3e:00:00:00 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.3.1/24 brd 10.0.3.255 scope global lxcbr0
+       valid_lft forever preferred_lft forever
+5: lxdbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default qlen 1000
+    link/ether 00:16:3e:c9:17:f5 brd ff:ff:ff:ff:ff:ff
+    inet 10.150.229.1/24 scope global lxdbr0
+       valid_lft forever preferred_lft forever
+    inet6 fd42:8a6c:71d4:71a9::1/64 scope global 
+       valid_lft forever preferred_lft forever
+root@mm-VB:/home/mmtester# 
+root@mm-VB:/home/mmtester# 
+root@mm-VB:/home/mmtester# 
+root@mm-VB:/home/mmtester# 
+root@mm-VB:/home/mmtester# 
+root@mm-VB:/home/mmtester# #init container
+root@mm-VB:/home/mmtester# 
+root@mm-VB:/home/mmtester# 
+root@mm-VB:/home/mmtester# 
+
+
+
+root@mm-VB:/home/mmtester# sudo apt-get install lxc-templates
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово         
+
+
+-----------------Тут было несколько сотен сообщений, пожалуй, пропустим -----------------
+
+
+Current default time zone: 'Etc/UTC'
+Local time is now:      Tue Jun 20 13:13:21 UTC 2023.
+Universal Time is now:  Tue Jun 20 13:13:21 UTC 2023.
+
+
+##
+# The default user is 'ubuntu' with password 'ubuntu'!
+# Use the 'sudo' command to run tasks as root in the container.
+##
+
+
+nano /var/lib/lxc/test123/config
+
+------------в файле --------------------
+ Template used to create this container: /usr/share/lxc/templates/lxc-ubuntu
+# Parameters passed to the template:
+# For additional config options, please look at lxc.container.conf(5)
+
+# Uncomment the following line to support nesting containers:
+#lxc.include = /usr/share/lxc/config/nesting.conf
+# (Be aware this has security implications)
+
+
+# Common configuration
+lxc.include = /usr/share/lxc/config/ubuntu.common.conf
+
+# Container specific configuration
+lxc.rootfs.path = dir:/var/lib/lxc/test123/rootfs
+lxc.uts.name = test123
+lxc.arch = amd64
+
+# Network configuration
+lxc.net.0.type = veth
+lxc.net.0.link = lxcbr0
+lxc.net.0.flags = up
+lxc.net.0.hwaddr = 00:16:3e:56:3c:c0
+lxc.cgroup2.memory.max = 256M
+lxc.start.auto = 1
+
+
+
+--------------------------------------------------------------------------
+
+
+root@mm-VB:/home/mmtester/Рабочий стол/Containers/seminar2# lxc-ls -f
+NAME    STATE   AUTOSTART GROUPS IPV4 IPV6 UNPRIVILEGED 
+test123 STOPPED 1         -      -    -    false        
+root@mm-VB:/home/mmtester/Рабочий стол/Containers/seminar2# free -m
+               total        used        free      shared  buff/cache   available
+Память:       3923        1406         153          28        2362        2209
+Подкачка:       2139          25        2114
+root@mm-VB:/home/mmtester/Рабочий стол/Containers/seminar2# 
+

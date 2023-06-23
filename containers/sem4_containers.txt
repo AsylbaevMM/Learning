@@ -1,0 +1,412 @@
+mtester@mm-VB:~$ sudo su
+[sudo] пароль для mmtester: 
+root@mm-VB:/home/mmtester# cd Dockerfile
+bash: cd: Dockerfile: Это не каталог
+root@mm-VB:/home/mmtester# more Dockerfile
+FROM ubuntu:20.04
+MAINTAINER GB_student
+RUN apt-get update
+RUN apt-get install nginx -y
+RUN apt-get install php-fpm -y
+RUN mkdir /run/php-fpm
+VOLUME "/var/www/html"
+EXPOSE 80
+CMD /usr/sbin/nginx -g "daemon off;" ; php-fpm -D
+
+
+root@mm-VB:/home/mmtester# rm Dockerfile
+root@mm-VB:/home/mmtester# ls
+ files         shared       test.txt      Документы     Музыка          Шаблоны
+ newhardlink   snap         username.sh   Загрузки      Общедоступные
+ print100      testfolder   Видео         Изображения  'Рабочий стол'
+root@mm-VB:/home/mmtester# mkdir sem4_containers
+root@mm-VB:/home/mmtester# cd sem4_containers
+root@mm-VB:/home/mmtester/sem4_containers# touch Dockerfile
+root@mm-VB:/home/mmtester/sem4_containers# nano Dockerfile
+
+_______________________in file______________________________
+FROM ubuntu:latest
+RUN apt-get update && \
+    apt-get install -y cowsay && \
+    ln -s /usr/games/cowsay /usr/bin/cowsay && \
+    rm -rf /var/lib/apt/lists/*
+CMD [“cowsay”]
+------------------------------------------------------------
+
+
+
+
+root@mm-VB:/home/mmtester/sem4_containers# docker build -t cowsaytest ./
+[+] Building 0.1s (2/2) FINISHED                                                                                
+ => [internal] load build definition from Dockerfile                                                       0.0s
+ => => transferring dockerfile: 220B                                                                       0.0s
+ => [internal] load .dockerignore                                                                          0.0s
+ => => transferring context: 2B                                                                            0.0s
+Dockerfile:1
+--------------------
+   1 | >>> FROM ubuntu 22:latest
+   2 |     RUN apt-get update && \
+   3 |         apt-get install -y cowsay && \
+--------------------
+ERROR: failed to solve: dockerfile parse error on line 1: FROM requires either one or three arguments
+root@mm-VB:/home/mmtester/sem4_containers# nano Dockerfile
+root@mm-VB:/home/mmtester/sem4_containers# docker build -t cowsaytest .
+[+] Building 14.2s (6/6) FINISHED                                                                               
+ => [internal] load build definition from Dockerfile                                                       0.0s
+ => => transferring dockerfile: 217B                                                                       0.0s
+ => [internal] load .dockerignore                                                                          0.0s
+ => => transferring context: 2B                                                                            0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                           0.0s
+ => [1/2] FROM docker.io/library/ubuntu:latest                                                             0.0s
+ => [2/2] RUN apt-get update &&     apt-get install -y cowsay &&     ln -s /usr/games/cowsay /usr/bin/co  13.8s
+ => exporting to image                                                                                     0.3s 
+ => => exporting layers                                                                                    0.3s 
+ => => writing image sha256:9203d718ec55c4c2558d738266728b80d66ab12695c1a30682ca4be04b0b6071               0.0s 
+ => => naming to docker.io/library/cowsaytest                                                              0.0s 
+root@mm-VB:/home/mmtester/sem4_containers# docker run cowsaytest cowsay “GeekBrains”                            
+ __                                                                                                             
+< “GeekBrains”  >
+ --
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+root@mm-VB:/home/mmtester/sem4_containers# 
+root@mm-VB:/home/mmtester/sem4_containers# 
+root@mm-VB:/home/mmtester/sem4_containers# nano Dockerfile
+root@mm-VB:/home/mmtester/sem4_containers# nano Dockerfile
+root@mm-VB:/home/mmtester/sem4_containers# docker build -t cowsaytest .
+[+] Building 13.2s (7/7) FINISHED                                                                               
+ => [internal] load build definition from Dockerfile                                                       0.0s
+ => => transferring dockerfile: 216B                                                                       0.0s
+ => [internal] load .dockerignore                                                                          0.0s
+ => => transferring context: 2B                                                                            0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                           0.0s
+ => CACHED [1/3] FROM docker.io/library/ubuntu:latest                                                      0.0s
+ => [2/3] RUN apt-get update                                                                               6.9s
+ => [3/3] RUN    apt-get install -y cowsay &&     ln -s /usr/games/cowsay /usr/bin/cowsay &&     rm -rf /  5.9s 
+ => exporting to image                                                                                     0.3s 
+ => => exporting layers                                                                                    0.3s 
+ => => writing image sha256:55bd598ef66bd637f8879f51e97f9f61a76465ff8c23f33057511d83af048874               0.0s 
+ => => naming to docker.io/library/cowsaytest                                                              0.0s 
+root@mm-VB:/home/mmtester/sem4_containers# docker run cowsaytest cowsay “GeekBrains”
+ __                                                                                                             
+< “GeekBrains”  >
+ --
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+root@mm-VB:/home/mmtester/sem4_containers# touch test1.txt
+root@mm-VB:/home/mmtester/sem4_containers# nano test1.txt
+root@mm-VB:/home/mmtester/sem4_containers# nano Dockerfile
+root@mm-VB:/home/mmtester/sem4_containers# docker build -t cowsaytest .
+\
+[+] Building 0.1s (9/9) FINISHED                                                                                
+ => [internal] load build definition from Dockerfile                                                       0.0s
+ => => transferring dockerfile: 234B                                                                       0.0s
+ => [internal] load .dockerignore                                                                          0.0s
+ => => transferring context: 2B                                                                            0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                           0.0s
+ => [1/4] FROM docker.io/library/ubuntu:latest                                                             0.0s
+ => [internal] load build context                                                                          0.0s
+ => => transferring context: 47B                                                                           0.0s
+ => CACHED [2/4] RUN apt-get update                                                                        0.0s
+ => CACHED [3/4] RUN    apt-get install -y cowsay &&     ln -s /usr/games/cowsay /usr/bin/cowsay &&     r  0.0s
+ => [4/4] COPY test1.txt /                                                                                 0.0s
+ => exporting to image                                                                                     0.0s
+ => => exporting layers                                                                                    0.0s
+ => => writing image sha256:614f6e3589cbc5daa9a8114f2cc695bff2cab9400d1d9471a31ef7440276920e               0.0s
+ => => naming to docker.io/library/cowsaytest                                                              0.0s
+root@mm-VB:/home/mmtester/sem4_containers# \
+> nano Dockerfile
+root@mm-VB:/home/mmtester/sem4_containers# docker build -t cowsaytest .
+[+] Building 14.9s (9/9) FINISHED                                                                               
+ => [internal] load build definition from Dockerfile                                                       0.0s
+ => => transferring dockerfile: 235B                                                                       0.0s
+ => [internal] load .dockerignore                                                                          0.0s
+ => => transferring context: 2B                                                                            0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                           0.0s
+ => [internal] load build context                                                                          0.0s
+ => => transferring context: 30B                                                                           0.0s
+ => CACHED [1/4] FROM docker.io/library/ubuntu:latest                                                      0.0s
+ => [2/4] COPY test1.txt /                                                                                 0.0s
+ => [3/4] RUN apt-get update                                                                               7.3s
+ => [4/4] RUN    apt-get install -y cowsay &&     ln -s /usr/games/cowsay /usr/bin/cowsay &&     rm -rf /  7.1s
+ => exporting to image                                                                                     0.3s 
+ => => exporting layers                                                                                    0.3s 
+ => => writing image sha256:2108df184d292c01ee098c968791b8169d131729a0ee4a37c435fef7c6093b96               0.0s 
+ => => naming to docker.io/library/cowsaytest                                                              0.0s 
+root@mm-VB:/home/mmtester/sem4_containers# docker ps -a                                                         
+CONTAINER ID   IMAGE                   COMMAND                  CREATED          STATUS                      PORTS     NAMES
+9ea0b569c0fc   55bd598ef66b            "cowsay “GeekBrains”"    14 minutes ago   Exited (0) 14 minutes ago             suspicious_matsumoto
+4a2f557b4706   9203d718ec55            "cowsay “GeekBrains”"    19 minutes ago   Exited (0) 19 minutes ago             festive_archimedes
+d9c9b6984b25   phpmyadmin/phpmyadmin   "/docker-entrypoint.…"   2 days ago       Exited (0) 2 days ago                 myphp
+e37374319f91   mysql:8.0.31            "docker-entrypoint.s…"   2 days ago       Exited (0) 2 days ago                 some-mysql
+eb3e5a8f495c   ubuntu:22.10            "/bin/bash"              2 days ago       Exited (0) 2 days ago                 gb-test
+root@mm-VB:/home/mmtester/sem4_containers# docker rm $(docker ps -a -q) --force
+9ea0b569c0fc
+4a2f557b4706
+d9c9b6984b25
+e37374319f91
+eb3e5a8f495c
+root@mm-VB:/home/mmtester/sem4_containers# docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+root@mm-VB:/home/mmtester/sem4_containers# docker images
+REPOSITORY              TAG       IMAGE ID       CREATED          SIZE
+cowsaytest              latest    2108df184d29   5 minutes ago    166MB
+<none>                  <none>    614f6e3589cb   8 minutes ago    166MB
+<none>                  <none>    55bd598ef66b   17 minutes ago   166MB
+<none>                  <none>    9203d718ec55   23 minutes ago   126MB
+ubuntu                  22.10     e39f297e9dda   2 weeks ago      70.3MB
+ubuntu                  latest    99284ca6cea0   2 weeks ago      77.8MB
+phpmyadmin/phpmyadmin   latest    e4be0d1537f5   2 months ago     517MB
+mysql                   8.0.31    7484689f290f   6 months ago     538MB
+root@mm-VB:/home/mmtester/sem4_containers# docker rm i (docker images)
+bash: синтаксическая ошибка рядом с неожиданным маркером «(»
+root@mm-VB:/home/mmtester/sem4_containers# docker rmi $(docker images)
+Untagged: cowsaytest:latest
+Deleted: sha256:2108df184d292c01ee098c968791b8169d131729a0ee4a37c435fef7c6093b96
+Deleted: sha256:614f6e3589cbc5daa9a8114f2cc695bff2cab9400d1d9471a31ef7440276920e
+Deleted: sha256:55bd598ef66bd637f8879f51e97f9f61a76465ff8c23f33057511d83af048874
+Deleted: sha256:9203d718ec55c4c2558d738266728b80d66ab12695c1a30682ca4be04b0b6071
+Untagged: ubuntu:latest
+Untagged: ubuntu@sha256:6120be6a2b7ce665d0cbddc3ce6eae60fe94637c6a66985312d1f02f63cc0bcd
+Deleted: sha256:99284ca6cea039c7784d1414608c6e846dd56830c2a13e1341be681c3ffcc8ac
+Untagged: ubuntu:22.10
+Untagged: ubuntu@sha256:1fa7586c0f10cc7ce7ca379ae48bf06776325b9f8e97963ce40803a8bcc07dca
+Deleted: sha256:e39f297e9dda29a8d8896051c30f32feb52c9dcfb68e8a561650a1dde97cc94b
+Deleted: sha256:b368ecd0904dfc1140deb5693fed1992e6b2f861316adae832b1b05fab847f11
+Untagged: phpmyadmin/phpmyadmin:latest
+Untagged: phpmyadmin/phpmyadmin@sha256:ed87921184b59f7d8fc85c6a5f041c22758a4d4419c0ee3bac38eb7e133eaed3
+Deleted: sha256:e4be0d1537f54c943b8489cdf0d4af0369e1a6110ea978090ae5e95a9a3f2c24
+Deleted: sha256:9a239a1dd86257c0c7554707311fd24859cbc1d4c03206bad7250a04cfc366f4
+Deleted: sha256:a34e056034bcbdeaa0c72ea1a8925f7eb8f1494f9134ee6676e3ec3c8637a6fa
+Deleted: sha256:e10031a0b754b26248b422a60c2dc402fd1da8523bb71a4e99327be9dd5cb1c6
+Deleted: sha256:8147fba2a808cbcd553ac82c8ac211c7757912c37aa9a7cebf5681849c7425d8
+Deleted: sha256:852554d2e2711946645116073931d99fdc422cfe1703437ff6c00b724808d1af
+Deleted: sha256:8ae4c958b7be143d0797b531289b4b6b813ab87b6d48fc83f62be346a285457c
+Deleted: sha256:4b4f47834c599c62ed06a86132f99c03276a317bedfb991a314eeffc48bf1673
+Deleted: sha256:3e902c55f07efa59dd09a357848517479e4d125afcc7a8c71e308f133f96a3c6
+Deleted: sha256:30e6adb5e607e9a9e4c6c1eb7384e77d90edab6759eb2bdfc3f5c07b031bcc5b
+Deleted: sha256:2bdba63e182998dcc5343aa6e06acb46e23cf528646ae872a828b3ae6d5606b5
+Deleted: sha256:016b41d08c85b23235a79c927e15ddf14cd89bf2c2037943fced89e1a2286218
+Deleted: sha256:34cf5f8004acf1d01ad7121afd0ec236447e81d8d6e887be26689435a481f5d3
+Deleted: sha256:e42012c29b3ba7151c5b0aef4303bd4ddaaf4794ac4ff7318996fe5347c589e6
+Deleted: sha256:305513ef6fc35cb27a6e20aaf001b2d8b0af2b4c82fa3eaf1adaddeb532f8a14
+Deleted: sha256:c428b67a5c17faefa5c63ac0243f5c8fa2844350f9ed793aa8f5207b39ee3d1f
+Deleted: sha256:e585d282630322048da7540e5f9f576d84c0c91d13df4f1fe0fb06f60ecd9180
+Deleted: sha256:12e3e7367b5a599a5db2e3dc6872c3b9d4b7af02c7c247f1eb72ff428778a4fa
+Deleted: sha256:3af14c9a24c941c626553628cf1942dcd94d40729777f2fcfbcd3b8a3dfccdd6
+Untagged: mysql:8.0.31
+Untagged: mysql@sha256:3d7ae561cf6095f6aca8eb7830e1d14734227b1fb4748092f2be2cfbccf7d614
+Deleted: sha256:7484689f290f1defe06b65befc54cb6ad91a667cf0af59a265ffe76c46bd0478
+Deleted: sha256:fb249074ba1621ae2f0021b89488f93d6d591fd42f8bbc760be96a653d18a066
+Deleted: sha256:d7912527c048a7e206c51080f7f1b6b6c383ac8954e3da7d113b00d0a96c7044
+Deleted: sha256:994f05094d147f16e330dd7c9afd5e1472fbf1ce1038eb707e379ae507de6167
+Deleted: sha256:1337fe7eaf3ed7bac1f1842205c3c80466781cf2ed39d755043a24939a9c4408
+Deleted: sha256:4524762c7e21412b3fef00e189fe6b81e78f2751fef4f30355018dc3ab5f3cf2
+Deleted: sha256:5222c8df3c5115dcf6c3bb957d5160d5d7124437fa2f214368d67b8e1e6d670e
+Deleted: sha256:169fcf64e0d193fda3e49267b454ddeb4083f05e70bbcbbc6de2798944c3e555
+Deleted: sha256:bc87451b8005b06fa948e48c2644bc42107cf037499d15dad7f341064035dfc2
+Deleted: sha256:93c1acbf3bfcdd2a82a68687481569a07d619469a596b5f017f17cc092498eef
+Deleted: sha256:29bd3d7c6e1683e422776b9d3285e8a3f1272f07656fc63a941cb7729a169100
+Deleted: sha256:d3cc7b6aa7bc15725c1a856ce06fe436da3fbccf0c9c06b04e45f79b3439c154
+Error response from daemon: invalid reference format: repository name must be lowercase
+Error response from daemon: invalid reference format: repository name must be lowercase
+Error response from daemon: invalid reference format: repository name must be lowercase
+Error response from daemon: invalid reference format: repository name must be lowercase
+Error response from daemon: invalid reference format: repository name must be lowercase
+Error response from daemon: invalid reference format: repository name must be lowercase
+Error response from daemon: No such image: latest:latest
+Error response from daemon: No such image: 2108df184d29:latest
+Error response from daemon: No such image: 8:latest
+Error response from daemon: No such image: minutes:latest
+Error response from daemon: No such image: ago:latest
+Error response from daemon: invalid reference format: repository name must be lowercase
+Error response from daemon: invalid reference format
+Error response from daemon: invalid reference format
+Error response from daemon: No such image: 11:latest
+Error response from daemon: No such image: minutes:latest
+Error response from daemon: No such image: ago:latest
+Error response from daemon: invalid reference format: repository name must be lowercase
+Error response from daemon: invalid reference format
+Error response from daemon: invalid reference format
+Error response from daemon: No such image: 19:latest
+Error response from daemon: No such image: minutes:latest
+Error response from daemon: No such image: ago:latest
+Error response from daemon: invalid reference format: repository name must be lowercase
+Error response from daemon: invalid reference format
+Error response from daemon: invalid reference format
+Error response from daemon: No such image: 26:latest
+Error response from daemon: No such image: minutes:latest
+Error response from daemon: No such image: ago:latest
+Error response from daemon: invalid reference format: repository name must be lowercase
+Error response from daemon: No such image: 22.10:latest
+Error response from daemon: No such image: 2:latest
+Error response from daemon: No such image: weeks:latest
+Error response from daemon: No such image: ago:latest
+Error response from daemon: invalid reference format: repository name must be lowercase
+Error response from daemon: No such image: ubuntu:latest
+Error response from daemon: No such image: latest:latest
+Error response from daemon: No such image: 99284ca6cea0:latest
+Error response from daemon: No such image: 2:latest
+Error response from daemon: No such image: weeks:latest
+Error response from daemon: No such image: ago:latest
+Error response from daemon: invalid reference format: repository name must be lowercase
+Error response from daemon: No such image: latest:latest
+Error response from daemon: No such image: e4be0d1537f5:latest
+Error response from daemon: No such image: 2:latest
+Error response from daemon: No such image: months:latest
+Error response from daemon: No such image: ago:latest
+Error response from daemon: invalid reference format: repository name must be lowercase
+Error response from daemon: No such image: mysql:latest
+Error response from daemon: No such image: 8.0.31:latest
+Error response from daemon: No such image: 6:latest
+Error response from daemon: No such image: months:latest
+Error response from daemon: No such image: ago:latest
+Error response from daemon: invalid reference format: repository name must be lowercase
+root@mm-VB:/home/mmtester/sem4_containers# docker images
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+root@mm-VB:/home/mmtester/sem4_containers# nano Dockerfile
+root@mm-VB:/home/mmtester/sem4_containers# 
+
+root@mm-VB:/home/mmtester/sem4_containers# nano Dockerfile
+root@mm-VB:/home/mmtester/sem4_containers# nano Dockerfile
+root@mm-VB:/home/mmtester/sem4_containers# docker build -t cowsaytest .
+[+] Building 2.5s (7/7) FINISHED                                                                                                              
+ => [internal] load .dockerignore                                                                                                        0.0s
+ => => transferring context: 2B                                                                                                          0.0s
+ => [internal] load build definition from Dockerfile                                                                                     0.0s
+ => => transferring dockerfile: 90B                                                                                                      0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                                         2.5s
+ => [internal] load build context                                                                                                        0.0s
+ => => transferring context: 30B                                                                                                         0.0s
+ => [1/2] FROM docker.io/library/ubuntu:latest@sha256:6120be6a2b7ce665d0cbddc3ce6eae60fe94637c6a66985312d1f02f63cc0bcd                   0.0s
+ => => resolve docker.io/library/ubuntu:latest@sha256:6120be6a2b7ce665d0cbddc3ce6eae60fe94637c6a66985312d1f02f63cc0bcd                   0.0s
+ => CACHED [2/2] COPY test1.txt /                                                                                                        0.0s
+ => exporting to image                                                                                                                   0.0s
+ => => exporting layers                                                                                                                  0.0s
+ => => writing image sha256:e3121e409db9b4a6907bbc03ee25deae0dac0249546d38b1efd053a9c74a6a11                                             0.0s
+ => => naming to docker.io/library/cowsaytest                                                                                            0.0s
+root@mm-VB:/home/mmtester/sem4_containers# docker run -n sleeptest -d sleeptest
+unknown shorthand flag: 'n' in -n
+See 'docker run --help'.
+root@mm-VB:/home/mmtester/sem4_containers# docker run -n cowsaytest -d cowsaytest
+unknown shorthand flag: 'n' in -n
+See 'docker run --help'.
+root@mm-VB:/home/mmtester/sem4_containers# docker run -n cowsaytest -d cowsaytest .
+unknown shorthand flag: 'n' in -n
+See 'docker run --help'.
+root@mm-VB:/home/mmtester/sem4_containers# docker run -d cowsaytest .
+b4715c2563621159f08d50c1d4783a6870f1e5c3c2236b09825befa823f24f9b
+docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: ".": executable file not found in $PATH: unknown.
+root@mm-VB:/home/mmtester/sem4_containers# docker run -d cowsaytest
+a275a126bbbd6fe10260778e055b56ab3b66fd90446e2cf4dd15b587466b3167
+root@mm-VB:/home/mmtester/sem4_containers# docker run -it cowsaytest bash
+root@4e41e61bd153:/# exit
+exit
+root@mm-VB:/home/mmtester/sem4_containers# nano Dockerfile
+root@mm-VB:/home/mmtester/sem4_containers# docker build -t cowsaytest .
+[+] Building 1.7s (7/7) FINISHED                                                                                                             
+ => [internal] load build definition from Dockerfile                                                                                    0.0s
+ => => transferring dockerfile: 88B                                                                                                     0.0s
+ => [internal] load .dockerignore                                                                                                       0.0s
+ => => transferring context: 2B                                                                                                         0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                                        1.6s
+ => [internal] load build context                                                                                                       0.0s
+ => => transferring context: 30B                                                                                                        0.0s
+ => [1/2] FROM docker.io/library/ubuntu:latest@sha256:6120be6a2b7ce665d0cbddc3ce6eae60fe94637c6a66985312d1f02f63cc0bcd                  0.0s
+ => => resolve docker.io/library/ubuntu:latest@sha256:6120be6a2b7ce665d0cbddc3ce6eae60fe94637c6a66985312d1f02f63cc0bcd                  0.0s
+ => CACHED [2/2] COPY test1.txt /                                                                                                       0.0s
+ => exporting to image                                                                                                                  0.0s
+ => => exporting layers                                                                                                                 0.0s
+ => => writing image sha256:24a4a76ef75b7bb1a324dd68b89edb9756151266f2a4dc3504353110ef652352                                            0.0s
+ => => naming to docker.io/library/cowsaytest                                                                                           0.0s
+root@mm-VB:/home/mmtester/sem4_containers# docker run -d cowsaytest
+4a01cc31d7fa48a0751d634c78beecb7f14f0704ec756273f0934f63004a1275
+root@mm-VB:/home/mmtester/sem4_containers# docker run -it cowsaytest bash
+root@70746f3d4eea:/# exit
+exit
+root@mm-VB:/home/mmtester/sem4_containers# docker run -it cowsaytest bash
+root@6f908608e300:/# exit
+exit
+root@mm-VB:/home/mmtester/sem4_containers# docker run -it cowsaytest bash
+root@2d837efe8ebf:/# exit
+exit
+root@mm-VB:/home/mmtester/sem4_containers# docker ps -a
+CONTAINER ID   IMAGE          COMMAND                  CREATED              STATUS                          PORTS     NAMES
+2d837efe8ebf   cowsaytest     "bash"                   21 seconds ago       Exited (0) 14 seconds ago                 trusting_jepsen
+6f908608e300   cowsaytest     "bash"                   35 seconds ago       Exited (0) 29 seconds ago                 vigilant_lalande
+70746f3d4eea   cowsaytest     "bash"                   55 seconds ago       Exited (0) 39 seconds ago                 gifted_ishizaka
+4a01cc31d7fa   cowsaytest     "/bin/sh -c 'sleep 5'"   About a minute ago   Exited (0) About a minute ago             modest_northcutt
+4e41e61bd153   e3121e409db9   "bash"                   2 minutes ago        Exited (0) 2 minutes ago                  serene_rosalind
+a275a126bbbd   e3121e409db9   "/bin/sh -c 'sleep 6…"   3 minutes ago        Up 3 minutes                              cranky_euclid
+b4715c256362   e3121e409db9   "."                      3 minutes ago        Created                                   determined_pike
+root@mm-VB:/home/mmtester/sem4_containers# docker exec -it cowsaytest bash
+Error response from daemon: No such container: cowsaytest
+root@mm-VB:/home/mmtester/sem4_containers# nano Dockerfile
+root@mm-VB:/home/mmtester/sem4_containers# docker build -t cowsaytest .
+[+] Building 1.0s (7/7) FINISHED                                                                                                             
+ => [internal] load build definition from Dockerfile                                                                                    0.0s
+ => => transferring dockerfile: 90B                                                                                                     0.0s
+ => [internal] load .dockerignore                                                                                                       0.0s
+ => => transferring context: 2B                                                                                                         0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                                                                        1.0s
+ => [internal] load build context                                                                                                       0.0s
+ => => transferring context: 30B                                                                                                        0.0s
+ => [1/2] FROM docker.io/library/ubuntu:latest@sha256:6120be6a2b7ce665d0cbddc3ce6eae60fe94637c6a66985312d1f02f63cc0bcd                  0.0s
+ => => resolve docker.io/library/ubuntu:latest@sha256:6120be6a2b7ce665d0cbddc3ce6eae60fe94637c6a66985312d1f02f63cc0bcd                  0.0s
+ => CACHED [2/2] COPY test1.txt /                                                                                                       0.0s
+ => exporting to image                                                                                                                  0.0s
+ => => exporting layers                                                                                                                 0.0s
+ => => writing image sha256:e3121e409db9b4a6907bbc03ee25deae0dac0249546d38b1efd053a9c74a6a11                                            0.0s
+ => => naming to docker.io/library/cowsaytest                                                                                           0.0s
+root@mm-VB:/home/mmtester/sem4_containers# docker run -d cowsaytest
+8e9c0a96fd7246f49b7492c6cde19f863dc02c0f25cf8c71635f3d0872593102
+root@mm-VB:/home/mmtester/sem4_containers# docker exec -it cowsaytest bash
+Error response from daemon: No such container: cowsaytest
+root@mm-VB:/home/mmtester/sem4_containers# docker start cowsaytest
+Error response from daemon: No such container: cowsaytest
+Error: failed to start containers: cowsaytest
+root@mm-VB:/home/mmtester/sem4_containers# docker run -d cowsaytest
+ff9ce6236192a5de9fe22a9b7e7782a7ac386a7f8c5af5666e88f37980a0e487
+root@mm-VB:/home/mmtester/sem4_containers# nano Dockerfile
+root@mm-VB:/home/mmtester/sem4_containers# docker exec -it cowsaytest bash
+Error response from daemon: No such container: cowsaytest
+root@mm-VB:/home/mmtester/sem4_containers# docker ps -a
+CONTAINER ID   IMAGE          COMMAND                  CREATED              STATUS                     PORTS     NAMES
+ff9ce6236192   cowsaytest     "/bin/sh -c 'sleep 6…"   54 seconds ago       Up 53 seconds                        kind_khorana
+8e9c0a96fd72   cowsaytest     "/bin/sh -c 'sleep 6…"   About a minute ago   Up About a minute                    nostalgic_williams
+2d837efe8ebf   24a4a76ef75b   "bash"                   5 minutes ago        Exited (0) 5 minutes ago             trusting_jepsen
+6f908608e300   24a4a76ef75b   "bash"                   5 minutes ago        Exited (0) 5 minutes ago             vigilant_lalande
+70746f3d4eea   24a4a76ef75b   "bash"                   5 minutes ago        Exited (0) 5 minutes ago             gifted_ishizaka
+4a01cc31d7fa   24a4a76ef75b   "/bin/sh -c 'sleep 5'"   6 minutes ago        Exited (0) 6 minutes ago             modest_northcutt
+4e41e61bd153   cowsaytest     "bash"                   7 minutes ago        Exited (0) 7 minutes ago             serene_rosalind
+a275a126bbbd   cowsaytest     "/bin/sh -c 'sleep 6…"   8 minutes ago        Up 8 minutes                         cranky_euclid
+b4715c256362   cowsaytest     "."                      8 minutes ago        Created                              determined_pike
+root@mm-VB:/home/mmtester/sem4_containers# docker exec -it cowsaytest bash
+Error response from daemon: No such container: cowsaytest
+root@mm-VB:/home/mmtester/sem4_containers# docker exec -it ff9ce6236192 bash
+root@ff9ce6236192:/# exit
+exit
+root@mm-VB:/home/mmtester/sem4_containers# docker exec -it ff9ce6236192 bash
+root@ff9ce6236192:/# exit
+exit
+root@mm-VB:/home/mmtester/sem4_containers# docker ps -a
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS                     PORTS     NAMES
+ff9ce6236192   cowsaytest     "/bin/sh -c 'sleep 6…"   2 minutes ago    Up 2 minutes                         kind_khorana
+8e9c0a96fd72   cowsaytest     "/bin/sh -c 'sleep 6…"   3 minutes ago    Up 3 minutes                         nostalgic_williams
+2d837efe8ebf   24a4a76ef75b   "bash"                   7 minutes ago    Exited (0) 6 minutes ago             trusting_jepsen
+6f908608e300   24a4a76ef75b   "bash"                   7 minutes ago    Exited (0) 7 minutes ago             vigilant_lalande
+70746f3d4eea   24a4a76ef75b   "bash"                   7 minutes ago    Exited (0) 7 minutes ago             gifted_ishizaka
+4a01cc31d7fa   24a4a76ef75b   "/bin/sh -c 'sleep 5'"   7 minutes ago    Exited (0) 7 minutes ago             modest_northcutt
+4e41e61bd153   cowsaytest     "bash"                   8 minutes ago    Exited (0) 8 minutes ago             serene_rosalind
+a275a126bbbd   cowsaytest     "/bin/sh -c 'sleep 6…"   9 minutes ago    Up 9 minutes                         cranky_euclid
+b4715c256362   cowsaytest     "."                      10 minutes ago   Created                              determined_pike
+root@mm-VB:/home/mmtester/sem4_containers# nano Dockerfile
+root@mm-VB:/home/mmtester/sem4_containers# 
+
+

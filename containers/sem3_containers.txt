@@ -1,0 +1,796 @@
+mmtester@mm-VB:~$ ^[[200~sudo apt-get update
+sudo: команда не найдена
+mmtester@mm-VB:~$ sudo apt-get install ca-certificates curl gnupg~
+[sudo] пароль для mmtester: 
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово         
+E: Невозможно найти пакет gnupg~
+mmtester@mm-VB:~$ sudo apt-get update
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+Пол:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]
+Пол:3 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]      
+Пол:4 http://ru.archive.ubuntu.com/ubuntu jammy-backports InRelease [108 kB]   
+Пол:5 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main i386 Packages [430 kB]
+Пол:6 http://ppa.launchpad.net/nginx/stable/ubuntu lucid InRelease [14,3 kB]   
+Пол:7 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [721 kB]
+Пол:8 http://security.ubuntu.com/ubuntu jammy-security/main i386 Packages [246 kB]
+Ошб:6 http://ppa.launchpad.net/nginx/stable/ubuntu lucid InRelease       
+  Следующие подписи неверны: 8B3981E7A6852F782CC4951600A6F0A3C300EE8C
+Пол:9 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [499 kB]
+Пол:10 http://security.ubuntu.com/ubuntu jammy-security/main Translation-en [129 kB]
+Пол:11 http://security.ubuntu.com/ubuntu jammy-security/main amd64 DEP-11 Metadata [41,5 kB]
+Пол:12 http://security.ubuntu.com/ubuntu jammy-security/main amd64 c-n-f Metadata [10,3 kB]
+Пол:13 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [415 kB]
+Пол:14 http://security.ubuntu.com/ubuntu jammy-security/restricted Translation-en [63,3 kB]
+Пол:15 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [740 kB]
+Пол:16 http://security.ubuntu.com/ubuntu jammy-security/universe i386 Packages [536 kB]
+Пол:17 http://security.ubuntu.com/ubuntu jammy-security/universe Translation-en [131 kB]
+Пол:18 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 DEP-11 Metadata [22,0 kB]
+Пол:19 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [190 kB]
+Пол:20 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 c-n-f Metadata [15,6 kB]
+Пол:21 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 DEP-11 Metadata [99,4 kB]
+Пол:22 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 c-n-f Metadata [15,3 kB]
+Пол:23 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [932 kB]
+Пол:24 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe i386 Packages [627 kB]
+Пол:25 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [199 kB]
+Пол:26 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 DEP-11 Metadata [274 kB]
+Пол:27 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 c-n-f Metadata [20,5 kB]
+Пол:28 http://ru.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 DEP-11 Metadata [940 B]
+Пол:29 http://ru.archive.ubuntu.com/ubuntu jammy-backports/main amd64 DEP-11 Metadata [8 004 B]
+Пол:30 http://ru.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 DEP-11 Metadata [16,8 kB]
+Чтение списков пакетов… Готово                                                
+W: http://ppa.launchpad.net/nginx/stable/ubuntu/dists/lucid/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+W: Ошибка GPG: http://ppa.launchpad.net/nginx/stable/ubuntu lucid InRelease: Следующие подписи неверны: 8B3981E7A6852F782CC4951600A6F0A3C300EE8C
+E: Репозиторий «http://ppa.launchpad.net/nginx/stable/ubuntu lucid InRelease» не подписан.
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+mmtester@mm-VB:~$ sudo apt-get install ca-certificates curl gnupg~
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово         
+E: Невозможно найти пакет gnupg~
+mmtester@mm-VB:~$ sudo apt-get install ca-certificates curl gnupg
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово         
+Уже установлен пакет ca-certificates самой новой версии (20230311ubuntu0.22.04.1).
+Уже установлен пакет curl самой новой версии (7.81.0-1ubuntu1.10).
+Уже установлен пакет gnupg самой новой версии (2.2.27-3ubuntu2.1).
+gnupg помечен как установленный вручную.
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 106 пакетов не обновлено.
+mmtester@mm-VB:~$ sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+mmtester@mm-VB:~$ echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+mmtester@mm-VB:~$ sudo apt-get update
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+Сущ:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates InRelease              
+Сущ:3 http://ru.archive.ubuntu.com/ubuntu jammy-backports InRelease            
+Сущ:4 http://security.ubuntu.com/ubuntu jammy-security InRelease               
+Пол:5 https://download.docker.com/linux/ubuntu jammy InRelease [48,9 kB]       
+Пол:6 http://ppa.launchpad.net/nginx/stable/ubuntu lucid InRelease [14,3 kB]   
+Пол:7 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages [19,2 kB]
+Ошб:6 http://ppa.launchpad.net/nginx/stable/ubuntu lucid InRelease
+  Следующие подписи неверны: 8B3981E7A6852F782CC4951600A6F0A3C300EE8C
+Чтение списков пакетов… Готово
+W: http://ppa.launchpad.net/nginx/stable/ubuntu/dists/lucid/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+W: Ошибка GPG: http://ppa.launchpad.net/nginx/stable/ubuntu lucid InRelease: Следующие подписи неверны: 8B3981E7A6852F782CC4951600A6F0A3C300EE8C
+E: Репозиторий «http://ppa.launchpad.net/nginx/stable/ubuntu lucid InRelease» не подписан.
+N: Обновление из этого репозитория нельзя выполнить безопасным способом, поэтому по умолчанию он отключён.
+N: Информацию о создании репозитория и настройках пользователя смотрите в справочной странице apt-secure(8).
+mmtester@mm-VB:~$ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово         
+Следующие пакеты устанавливались автоматически и больше не требуются:
+  bridge-utils ubuntu-fan
+Для их удаления используйте «sudo apt autoremove».
+Будут установлены следующие дополнительные пакеты:
+  docker-ce-rootless-extras libslirp0 slirp4netns
+Предлагаемые пакеты:
+  aufs-tools cgroupfs-mount | cgroup-lite
+Следующие пакеты будут УДАЛЕНЫ:
+  containerd docker.io runc
+Следующие НОВЫЕ пакеты будут установлены:
+  containerd.io docker-buildx-plugin docker-ce docker-ce-cli
+  docker-ce-rootless-extras docker-compose-plugin libslirp0 slirp4netns
+Обновлено 0 пакетов, установлено 8 новых пакетов, для удаления отмечено 3 пакетов, и 106 пакетов не обновлено.
+Необходимо скачать 111 MB архивов.
+После данной операции объём занятого дискового пространства возрастёт на 116 MB.
+Хотите продолжить? [Д/н] y
+Пол:1 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 libslirp0 amd64 4.6.1-1build1 [61,5 kB]
+Пол:2 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 slirp4netns amd64 1.0.1-2 [28,2 kB]
+Пол:3 https://download.docker.com/linux/ubuntu jammy/stable amd64 containerd.io amd64 1.6.21-1 [28,3 MB]
+Пол:4 https://download.docker.com/linux/ubuntu jammy/stable amd64 docker-buildx-plugin amd64 0.10.5-1~ubuntu.22.04~jammy [26,1 MB]
+Пол:5 https://download.docker.com/linux/ubuntu jammy/stable amd64 docker-ce-cli amd64 5:24.0.2-1~ubuntu.22.04~jammy [13,3 MB]
+Пол:6 https://download.docker.com/linux/ubuntu jammy/stable amd64 docker-ce amd64 5:24.0.2-1~ubuntu.22.04~jammy [22,9 MB]
+Пол:7 https://download.docker.com/linux/ubuntu jammy/stable amd64 docker-ce-rootless-extras amd64 5:24.0.2-1~ubuntu.22.04~jammy [9 008 kB]
+Пол:8 https://download.docker.com/linux/ubuntu jammy/stable amd64 docker-compose-plugin amd64 2.18.1-1~ubuntu.22.04~jammy [10,9 MB]
+Получено 111 MB за 14с (7 680 kB/s)                                            
+(Чтение базы данных … на данный момент установлено 188282 файла и каталога.)
+Удаляется docker.io (20.10.21-0ubuntu1~22.04.3) …
+'/usr/share/docker.io/contrib/nuke-graph-directory.sh' -> '/var/lib/docker/nuke-graph-directory.sh'
+Warning: Stopping docker.service, but it can still be activated by:
+  docker.socket
+Удаляется containerd (1.6.12-0ubuntu1~22.04.1) …
+Удаляется runc (1.1.4-0ubuntu1~22.04.3) …
+Выбор ранее не выбранного пакета containerd.io.
+(Чтение базы данных … на данный момент установлено 188019 файлов и каталогов.)
+Подготовка к распаковке …/0-containerd.io_1.6.21-1_amd64.deb …
+Распаковывается containerd.io (1.6.21-1) …
+Выбор ранее не выбранного пакета docker-buildx-plugin.
+Подготовка к распаковке …/1-docker-buildx-plugin_0.10.5-1~ubuntu.22.04~jammy_amd64.deb …
+Распаковывается docker-buildx-plugin (0.10.5-1~ubuntu.22.04~jammy) …
+Выбор ранее не выбранного пакета docker-ce-cli.
+Подготовка к распаковке …/2-docker-ce-cli_5%3a24.0.2-1~ubuntu.22.04~jammy_amd64.deb …
+Распаковывается docker-ce-cli (5:24.0.2-1~ubuntu.22.04~jammy) …
+Выбор ранее не выбранного пакета docker-ce.
+Подготовка к распаковке …/3-docker-ce_5%3a24.0.2-1~ubuntu.22.04~jammy_amd64.deb …
+Распаковывается docker-ce (5:24.0.2-1~ubuntu.22.04~jammy) …
+Выбор ранее не выбранного пакета docker-ce-rootless-extras.
+Подготовка к распаковке …/4-docker-ce-rootless-extras_5%3a24.0.2-1~ubuntu.22.04~jammy_amd64.deb …
+Распаковывается docker-ce-rootless-extras (5:24.0.2-1~ubuntu.22.04~jammy) …
+Выбор ранее не выбранного пакета docker-compose-plugin.
+Подготовка к распаковке …/5-docker-compose-plugin_2.18.1-1~ubuntu.22.04~jammy_amd64.deb …
+Распаковывается docker-compose-plugin (2.18.1-1~ubuntu.22.04~jammy) …
+Выбор ранее не выбранного пакета libslirp0:amd64.
+Подготовка к распаковке …/6-libslirp0_4.6.1-1build1_amd64.deb …
+Распаковывается libslirp0:amd64 (4.6.1-1build1) …
+Выбор ранее не выбранного пакета slirp4netns.
+Подготовка к распаковке …/7-slirp4netns_1.0.1-2_amd64.deb …
+Распаковывается slirp4netns (1.0.1-2) …
+Настраивается пакет docker-buildx-plugin (0.10.5-1~ubuntu.22.04~jammy) …
+Настраивается пакет containerd.io (1.6.21-1) …
+Настраивается пакет docker-compose-plugin (2.18.1-1~ubuntu.22.04~jammy) …
+Настраивается пакет docker-ce-cli (5:24.0.2-1~ubuntu.22.04~jammy) …
+Настраивается пакет libslirp0:amd64 (4.6.1-1build1) …
+Настраивается пакет docker-ce-rootless-extras (5:24.0.2-1~ubuntu.22.04~jammy) …
+Настраивается пакет slirp4netns (1.0.1-2) …
+Настраивается пакет docker-ce (5:24.0.2-1~ubuntu.22.04~jammy) …
+Job for docker.service failed because the control process exited with error code.
+See "systemctl status docker.service" and "journalctl -xeu docker.service" for details.
+invoke-rc.d: initscript docker, action "start" failed.
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: activating (auto-restart) (Result: exit-code) since Mon 2023-06-19 20:09:54 MSK; 7ms ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+    Process: 5964 ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock (code=exited, status=1/FAILURE)
+   Main PID: 5964 (code=exited, status=1/FAILURE)
+        CPU: 71ms
+dpkg: ошибка при обработке пакета docker-ce (--configure):
+ подпроцесс из пакета docker-ce установлен сценарий post-installation возвратил код ошибки 1
+Обрабатываются триггеры для man-db (2.10.2-1) …
+Обрабатываются триггеры для libc-bin (2.35-0ubuntu3.1) …
+При обработке следующих пакетов произошли ошибки:
+ docker-ce
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+mmtester@mm-VB:~$ docker help
+
+Usage:  docker [OPTIONS] COMMAND
+
+A self-sufficient runtime for containers
+
+Common Commands:
+  run         Create and run a new container from an image
+  exec        Execute a command in a running container
+  ps          List containers
+  build       Build an image from a Dockerfile
+  pull        Download an image from a registry
+  push        Upload an image to a registry
+  images      List images
+  login       Log in to a registry
+  logout      Log out from a registry
+  search      Search Docker Hub for images
+  version     Show the Docker version information
+  info        Display system-wide information
+
+Management Commands:
+  builder     Manage builds
+  buildx*     Docker Buildx (Docker Inc., v0.10.5)
+  checkpoint  Manage checkpoints
+  compose*    Docker Compose (Docker Inc., v2.18.1)
+  container   Manage containers
+  context     Manage contexts
+  image       Manage images
+  manifest    Manage Docker image manifests and manifest lists
+  network     Manage networks
+  plugin      Manage plugins
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Swarm Commands:
+  config      Manage Swarm configs
+  node        Manage Swarm nodes
+  secret      Manage Swarm secrets
+  service     Manage Swarm services
+  stack       Manage Swarm stacks
+  swarm       Manage Swarm
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
+
+Global Options:
+      --config string      Location of client config files (default
+                           "/home/mmtester/.docker")
+  -c, --context string     Name of the context to use to connect to the
+                           daemon (overrides DOCKER_HOST env var and
+                           default context set with "docker context use")
+  -D, --debug              Enable debug mode
+  -H, --host list          Daemon socket to connect to
+  -l, --log-level string   Set the logging level ("debug", "info",
+                           "warn", "error", "fatal") (default "info")
+      --tls                Use TLS; implied by --tlsverify
+      --tlscacert string   Trust certs signed only by this CA (default
+                           "/home/mmtester/.docker/ca.pem")
+      --tlscert string     Path to TLS certificate file (default
+                           "/home/mmtester/.docker/cert.pem")
+      --tlskey string      Path to TLS key file (default
+                           "/home/mmtester/.docker/key.pem")
+      --tlsverify          Use TLS and verify the remote
+  -v, --version            Print version information and quit
+
+Run 'docker COMMAND --help' for more information on a command.
+
+For more help on how to use Docker, head to https://docs.docker.com/go/guides/
+mmtester@mm-VB:~$ sudo docker run hello-world
+docker: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?.
+See 'docker run --help'.
+mmtester@mm-VB:~$ ^C
+mmtester@mm-VB:~$ docker pull ubuntu:18.04
+
+permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/images/create?fromImage=ubuntu&tag=18.04": dial unix /var/run/docker.sock: connect: permission denied
+mmtester@mm-VB:~$ sudo docker pull ubuntu:18.04
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+mmtester@mm-VB:~$ sudo docker pull ubuntu:18.04
+
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+mmtester@mm-VB:~$ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово         
+Уже установлен пакет containerd.io самой новой версии (1.6.21-1).
+Уже установлен пакет docker-buildx-plugin самой новой версии (0.10.5-1~ubuntu.22.04~jammy).
+Уже установлен пакет docker-ce-cli самой новой версии (5:24.0.2-1~ubuntu.22.04~jammy).
+Уже установлен пакет docker-ce самой новой версии (5:24.0.2-1~ubuntu.22.04~jammy).
+Уже установлен пакет docker-compose-plugin самой новой версии (2.18.1-1~ubuntu.22.04~jammy).
+Следующие пакеты устанавливались автоматически и больше не требуются:
+  bridge-utils ubuntu-fan
+Для их удаления используйте «sudo apt autoremove».
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 106 пакетов не обновлено.
+Установлено или удалено не до конца 1 пакетов.
+После данной операции объём занятого дискового пространства возрастёт на 0 B.
+Хотите продолжить? [Д/н] y
+Настраивается пакет docker-ce (5:24.0.2-1~ubuntu.22.04~jammy) …
+mmtester@mm-VB:~$ sudo docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+719385e32844: Pull complete 
+Digest: sha256:c2e23624975516c7e27b1b25be3682a8c6c4c0cea011b791ce98aa423b5040a0
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+mmtester@mm-VB:~$ docker pull ubuntu:18.04
+permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/images/create?fromImage=ubuntu&tag=18.04": dial unix /var/run/docker.sock: connect: permission denied
+mmtester@mm-VB:~$ sudo docker pull ubuntu:18.04
+18.04: Pulling from library/ubuntu
+7c457f213c76: Pull complete 
+Digest: sha256:152dc042452c496007f07ca9127571cb9c29697f42acbfad72324b2bb2e43c98
+Status: Downloaded newer image for ubuntu:18.04
+docker.io/library/ubuntu:18.04
+mmtester@mm-VB:~$ ^C
+mmtester@mm-VB:~$ 
+
+
+
+mmtester@mm-VB:~$ sudo su
+root@mm-VB:/home/mmtester# pass135790
+pass135790: команда не найдена
+root@mm-VB:/home/mmtester# docker ---help
+bad flag syntax: ---help
+See 'docker --help'.
+
+Usage:  docker [OPTIONS] COMMAND
+
+A self-sufficient runtime for containers
+
+Common Commands:
+  run         Create and run a new container from an image
+  exec        Execute a command in a running container
+  ps          List containers
+  build       Build an image from a Dockerfile
+  pull        Download an image from a registry
+  push        Upload an image to a registry
+  images      List images
+  login       Log in to a registry
+  logout      Log out from a registry
+  search      Search Docker Hub for images
+  version     Show the Docker version information
+  info        Display system-wide information
+
+Management Commands:
+  builder     Manage builds
+  buildx*     Docker Buildx (Docker Inc., v0.10.5)
+  compose*    Docker Compose (Docker Inc., v2.18.1)
+  container   Manage containers
+  context     Manage contexts
+  image       Manage images
+  manifest    Manage Docker image manifests and manifest lists
+  network     Manage networks
+  plugin      Manage plugins
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Swarm Commands:
+  swarm       Manage Swarm
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
+
+Global Options:
+      --config string      Location of client config files (default "/root/.docker")
+  -c, --context string     Name of the context to use to connect to the daemon (overrides
+                           DOCKER_HOST env var and default context set with "docker context use")
+  -D, --debug              Enable debug mode
+  -H, --host list          Daemon socket to connect to
+  -l, --log-level string   Set the logging level ("debug", "info", "warn", "error", "fatal")
+                           (default "info")
+      --tls                Use TLS; implied by --tlsverify
+      --tlscacert string   Trust certs signed only by this CA (default "/root/.docker/ca.pem")
+      --tlscert string     Path to TLS certificate file (default "/root/.docker/cert.pem")
+      --tlskey string      Path to TLS key file (default "/root/.docker/key.pem")
+      --tlsverify          Use TLS and verify the remote
+  -v, --version            Print version information and quit
+
+Run 'docker COMMAND --help' for more information on a command.
+
+For more help on how to use Docker, head to https://docs.docker.com/go/guides/
+
+root@mm-VB:/home/mmtester# docker images
+REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
+ubuntu        18.04     f9a80a55f492   2 weeks ago    63.2MB
+hello-world   latest    9c7a54a9a43c   6 weeks ago    13.3kB
+php_fpm       latest    10de09477e77   2 months ago   254MB
+ubuntu        latest    08d22c0ceb15   3 months ago   77.8MB
+ubuntu        20.04     1c5c8d0b973a   3 months ago   72.8MB
+root@mm-VB:/home/mmtester# docker rmi 10de09477e77
+Untagged: php_fpm:latest
+Deleted: sha256:10de09477e77e68336aadcac71786dc4a596ada45ce4e522b7efcf76d4ad75ff
+Deleted: sha256:dffc4feaaa0ea06d7eced2e940dd80d08e496a4e296bfe7d6c2bca7ed45e98bf
+Deleted: sha256:53b9f752b7096db0f92e57fcff8cc37784c99f2028d2d57338593aa9e3740243
+Deleted: sha256:e22cc64c6766d934cdaf37935069e1c40e3f7171480ed55281798a91f9555de9
+Deleted: sha256:685a59b020aace11089fb9009361ba1daa7ac003f2ef7292267bb0c95c954563
+Deleted: sha256:901fdb12a69f28e76017a8ad88d62adf9936e4f7523c2b1c2c957e8f855649b8
+Deleted: sha256:b21178246330ba2973aa26f84a3b4b0cd84f44b00f0419499ac875f62d2ba053
+Deleted: sha256:bfed05fef9a0f17f1cde53acb3191d75633201da1172976a526a0095421c7299
+Deleted: sha256:01f1846b9a65d87576ccc9c5d081fbb4e1ae945a88232b390eafe82dac2031b8
+Deleted: sha256:761c863872622db9eee7c46f82cf578d90fafe6eaebc442645a34c0f0ec73e88
+Deleted: sha256:71326094e774b77087716ce065e64c9d6cba5c0f6f7d67ffe41829c5c083af6d
+Deleted: sha256:28e0d5a689f5337e8a3702d86d4035cbd041d7cee0c53e7157764ec9a5b8e5fb
+root@mm-VB:/home/mmtester# docker images
+REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
+ubuntu        18.04     f9a80a55f492   2 weeks ago    63.2MB
+hello-world   latest    9c7a54a9a43c   6 weeks ago    13.3kB
+ubuntu        latest    08d22c0ceb15   3 months ago   77.8MB
+ubuntu        20.04     1c5c8d0b973a   3 months ago   72.8MB
+root@mm-VB:/home/mmtester# docker rmi 9c7a54a9a43c 08d22c0ceb15
+Error response from daemon: conflict: unable to delete 9c7a54a9a43c (must be forced) - image is being used by stopped container 521d4e0f84a8
+Error response from daemon: conflict: unable to delete 08d22c0ceb15 (must be forced) - image is being used by stopped container 8e86f75045d2
+root@mm-VB:/home/mmtester# docker images
+REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
+ubuntu        18.04     f9a80a55f492   2 weeks ago    63.2MB
+hello-world   latest    9c7a54a9a43c   6 weeks ago    13.3kB
+ubuntu        latest    08d22c0ceb15   3 months ago   77.8MB
+ubuntu        20.04     1c5c8d0b973a   3 months ago   72.8MB
+root@mm-VB:/home/mmtester# docker rmi $(docker images  -aq)
+Untagged: ubuntu:18.04
+Untagged: ubuntu@sha256:152dc042452c496007f07ca9127571cb9c29697f42acbfad72324b2bb2e43c98
+Deleted: sha256:f9a80a55f492e823bf5d51f1bd5f87ea3eed1cb31788686aa99a2fb61a27af6a
+Deleted: sha256:548a79621a426b4eb077c926eabac5a8620c454fb230640253e1b44dc7dd7562
+Untagged: ubuntu:20.04
+Untagged: ubuntu@sha256:24a0df437301598d1a4b62ddf59fa0ed2969150d70d748c84225e6501e9c36b9
+Deleted: sha256:1c5c8d0b973ab9d6d7742cf050beefa8ba2efb7779e09bfb1200d6192180766e
+Deleted: sha256:62789ffcd78ce0eae545b2743541d5c063270fe9f45477acacf2031b93cea70f
+Error response from daemon: conflict: unable to delete 9c7a54a9a43c (must be forced) - image is being used by stopped container 521d4e0f84a8
+Error response from daemon: conflict: unable to delete 08d22c0ceb15 (must be forced) - image is being used by stopped container 8e86f75045d2
+root@mm-VB:/home/mmtester# docker images
+REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
+hello-world   latest    9c7a54a9a43c   6 weeks ago    13.3kB
+ubuntu        latest    08d22c0ceb15   3 months ago   77.8MB
+root@mm-VB:/home/mmtester# docker rmi $(docker images  -aq) --forse
+unknown flag: --forse
+See 'docker rmi --help'.
+root@mm-VB:/home/mmtester# docker rmi $(docker images  -aq) $forse
+Error response from daemon: conflict: unable to delete 9c7a54a9a43c (must be forced) - image is being used by stopped container 521d4e0f84a8
+Error response from daemon: conflict: unable to delete 08d22c0ceb15 (must be forced) - image is being used by stopped container 8e86f75045d2
+root@mm-VB:/home/mmtester# docker rmi $(docker images  -aq) $force
+Error response from daemon: conflict: unable to delete 9c7a54a9a43c (must be forced) - image is being used by stopped container 521d4e0f84a8
+Error response from daemon: conflict: unable to delete 08d22c0ceb15 (must be forced) - image is being used by stopped container 8e86f75045d2
+root@mm-VB:/home/mmtester# docker rmi $(docker images  -aq) --force
+Untagged: hello-world:latest
+Untagged: hello-world@sha256:c2e23624975516c7e27b1b25be3682a8c6c4c0cea011b791ce98aa423b5040a0
+Deleted: sha256:9c7a54a9a43cca047013b82af109fe963fde787f63f9e016fdc3384500c2823d
+Untagged: ubuntu:latest
+Untagged: ubuntu@sha256:67211c14fa74f070d27cc59d69a7fa9aeff8e28ea118ef3babc295a0428a6d21
+Deleted: sha256:08d22c0ceb150ddeb2237c5fa3129c0183f3cc6f5eeb2e7aa4016da3ad02140a
+root@mm-VB:/home/mmtester# docker images
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+root@mm-VB:/home/mmtester# docker rm $(docker ps -a -q -f status=exited)
+521d4e0f84a8
+8e86f75045d2
+root@mm-VB:/home/mmtester# docker images
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+root@mm-VB:/home/mmtester# docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+root@mm-VB:/home/mmtester# docker run -it ubuntu bash
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+6b851dcae6ca: Pull complete 
+Digest: sha256:6120be6a2b7ce665d0cbddc3ce6eae60fe94637c6a66985312d1f02f63cc0bcd
+Status: Downloaded newer image for ubuntu:latest
+root@4812d20e6447:/# ls
+bin   dev  home  lib32  libx32  mnt  proc  run   srv  tmp  var
+boot  etc  lib   lib64  media   opt  root  sbin  sys  usr
+root@4812d20e6447:/# ip a
+bash: ip: command not found
+root@4812d20e6447:/# ip config
+bash: ip: command not found
+root@4812d20e6447:/# apt update
+Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Get:2 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]                    
+Get:3 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [36.3 kB]
+Get:4 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [631 kB]
+Get:5 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [541 kB]
+Get:6 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [938 kB]
+Get:7 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]                 
+Get:8 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [108 kB]
+Get:9 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [266 kB]
+Get:10 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1792 kB]
+Get:11 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [17.5 MB]
+Get:12 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [164 kB]
+Get:13 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [1191 kB]
+Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [919 kB]
+Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [545 kB]
+Get:16 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [42.2 kB]
+Get:17 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [49.4 kB]
+Get:18 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [27.0 kB]
+Fetched 25.2 MB in 6s (4350 kB/s)   
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+1 package can be upgraded. Run 'apt list --upgradable' to see it.
+root@4812d20e6447:/# apt install net tools
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Package tools is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+E: Unable to locate package net
+E: Package 'tools' has no installation candidate
+root@4812d20e6447:/# ip a
+bash: ip: command not found
+root@4812d20e6447:/# ip config
+bash: ip: command not found
+root@4812d20e6447:/# apt install net-tools
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  net-tools
+0 upgraded, 1 newly installed, 0 to remove and 1 not upgraded.
+Need to get 204 kB of archives.
+After this operation, 819 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu jammy/main amd64 net-tools amd64 1.60+git20181103.0eebece-1ubuntu5 [204 kB]
+Fetched 204 kB in 1s (169 kB/s)    
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package net-tools.
+(Reading database ... 4395 files and directories currently installed.)
+Preparing to unpack .../net-tools_1.60+git20181103.0eebece-1ubuntu5_amd64.deb ...
+Unpacking net-tools (1.60+git20181103.0eebece-1ubuntu5) ...
+Setting up net-tools (1.60+git20181103.0eebece-1ubuntu5) ...
+root@4812d20e6447:/# ip config
+bash: ip: command not found
+root@4812d20e6447:/# ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.17.0.2  netmask 255.255.0.0  broadcast 172.17.255.255
+        ether 02:42:ac:11:00:02  txqueuelen 0  (Ethernet)
+        RX packets 9335  bytes 26048464 (26.0 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 3971  bytes 295204 (295.2 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+root@4812d20e6447:/# hostname
+4812d20e6447
+root@4812d20e6447:/# exit
+exit
+root@mm-VB:/home/mmtester# docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS                      PORTS     NAMES
+4812d20e6447   ubuntu    "bash"    5 minutes ago   Exited (0) 11 seconds ago             agitated_satoshi
+root@mm-VB:/home/mmtester# docker run -it -h GB --name gb -test  ubuntu:22.10
+Unable to find image 'ubuntu:22.10' locally
+22.10: Pulling from library/ubuntu
+317e06b63fc0: Pull complete 
+Digest: sha256:1fa7586c0f10cc7ce7ca379ae48bf06776325b9f8e97963ce40803a8bcc07dca
+Status: Downloaded newer image for ubuntu:22.10
+root@GB:/# docker ps -a
+bash: docker: command not found
+root@GB:/# exit
+exit
+root@mm-VB:/home/mmtester# docker ps -a
+CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS                       PORTS     NAMES
+f915b15dd0a3   ubuntu:22.10   "/bin/bash"   52 seconds ago   Exited (127) 4 seconds ago             gb
+4812d20e6447   ubuntu         "bash"        8 minutes ago    Exited (0) 3 minutes ago               agitated_satoshi
+root@mm-VB:/home/mmtester# docker start gb
+gb
+root@mm-VB:/home/mmtester# docker ps -a
+CONTAINER ID   IMAGE          COMMAND       CREATED              STATUS                     PORTS     NAMES
+f915b15dd0a3   ubuntu:22.10   "/bin/bash"   About a minute ago   Up 7 seconds                         gb
+4812d20e6447   ubuntu         "bash"        9 minutes ago        Exited (0) 4 minutes ago             agitated_satoshi
+root@mm-VB:/home/mmtester# docker ps -a
+CONTAINER ID   IMAGE          COMMAND       CREATED         STATUS                     PORTS     NAMES
+f915b15dd0a3   ubuntu:22.10   "/bin/bash"   2 minutes ago   Up 15 seconds                        gb
+4812d20e6447   ubuntu         "bash"        9 minutes ago   Exited (0) 4 minutes ago             agitated_satoshi
+root@mm-VB:/home/mmtester# docker ps -a
+CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS                     PORTS     NAMES
+f915b15dd0a3   ubuntu:22.10   "/bin/bash"   2 minutes ago    Up 23 seconds                        gb
+4812d20e6447   ubuntu         "bash"        10 minutes ago   Exited (0) 4 minutes ago             agitated_satoshi
+root@mm-VB:/home/mmtester# docker exec -it  gb bash
+root@GB:/# hostname
+GB
+root@GB:/# exit
+exit
+root@mm-VB:/home/mmtester# docker ps -a
+CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS                     PORTS     NAMES
+f915b15dd0a3   ubuntu:22.10   "/bin/bash"   3 minutes ago    Up About a minute                    gb
+4812d20e6447   ubuntu         "bash"        11 minutes ago   Exited (0) 5 minutes ago             agitated_satoshi
+root@mm-VB:/home/mmtester# docker ps -a
+CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS                     PORTS     NAMES
+f915b15dd0a3   ubuntu:22.10   "/bin/bash"   3 minutes ago    Up About a minute                    gb
+4812d20e6447   ubuntu         "bash"        11 minutes ago   Exited (0) 5 minutes ago             agitated_satoshi
+root@mm-VB:/home/mmtester# docker ps -a
+CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS                     PORTS     NAMES
+f915b15dd0a3   ubuntu:22.10   "/bin/bash"   3 minutes ago    Up About a minute                    gb
+4812d20e6447   ubuntu         "bash"        11 minutes ago   Exited (0) 5 minutes ago             agitated_satoshi
+root@mm-VB:/home/mmtester# docker stop gb
+gb
+root@mm-VB:/home/mmtester# docker ps -a
+CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS                       PORTS     NAMES
+f915b15dd0a3   ubuntu:22.10   "/bin/bash"   3 minutes ago    Exited (137) 3 seconds ago             gb
+4812d20e6447   ubuntu         "bash"        11 minutes ago   Exited (0) 6 minutes ago               agitated_satoshi
+root@mm-VB:/home/mmtester# docker rm $(docker ps -a -q)
+f915b15dd0a3
+4812d20e6447
+root@mm-VB:/home/mmtester# docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+root@mm-VB:/home/mmtester# docker rm $(docker ps -a -q) --force
+"docker rm" requires at least 1 argument.
+See 'docker rm --help'.
+
+Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]
+
+Remove one or more containers
+root@mm-VB:/home/mmtester# docker run -it -h GB —name gb-test ubuntu:22.10
+docker: invalid reference format.
+See 'docker run --help'.
+root@mm-VB:/home/mmtester# docker run -it -h GB --name gb-test ubuntu:22.10
+root@GB:/# mkdir /example 
+root@GB:/# ls
+bin   dev  example  lib    lib64   media  opt   root  sbin  sys  usr
+boot  etc  home     lib32  libx32  mnt    proc  run   srv   tmp  var
+root@GB:/# touch /example/test.txt
+root@GB:/# cat 1234456test >> /example/test.txt
+cat: 1234456test: No such file or directory
+root@GB:/# cat '1234456test' >> /example/test.txt
+cat: 1234456test: No such file or directory
+root@GB:/# echo '123456test' >> /example/test.txt
+root@GB:/# cat /example/text.txt
+cat: /example/text.txt: No such file or directory
+root@GB:/# cat /example/test.txt
+123456test
+root@GB:/# exit
+exit
+root@mm-VB:/home/mmtester# docker ps-a
+docker: 'ps-a' is not a docker command.
+See 'docker --help'
+root@mm-VB:/home/mmtester# docker ps -a
+CONTAINER ID   IMAGE          COMMAND       CREATED         STATUS                     PORTS     NAMES
+fbf560a6367e   ubuntu:22.10   "/bin/bash"   4 minutes ago   Exited (0) 8 seconds ago             gb-test
+root@mm-VB:/home/mmtester# docker exec -it gb-test bash
+Error response from daemon: Container fbf560a6367ea89dd28e49ef9a58b5eb0fbe40afcfa16782a53350f97e8d4378 is not running
+root@mm-VB:/home/mmtester# docker start gb-test
+gb-test
+root@mm-VB:/home/mmtester# docker exec -it gb-test bash
+root@GB:/# ls
+bin   dev  example  lib    lib64   media  opt   root  sbin  sys  usr
+boot  etc  home     lib32  libx32  mnt    proc  run   srv   tmp  var
+root@GB:/# cat /example/test.txt
+123456test
+root@GB:/# exit
+exit
+root@mm-VB:/home/mmtester# rm -rf /test
+root@mm-VB:/home/mmtester# mkdir /test/
+root@mm-VB:/home/mmtester# mkdir /test/folder/
+root@mm-VB:/home/mmtester# docker run -it -h GB --name gb-test2 -v /test/folder:/otherway ubuntu:22.10
+root@GB:/# ls
+bin   dev  home  lib32  libx32  mnt  otherway  root  sbin  sys  usr
+boot  etc  lib   lib64  media   opt  proc      run   srv   tmp  var
+root@GB:/# ls /otherway
+root@GB:/# ls /otherway/
+root@GB:/# cat '12345testtext' > /otherway/test.txt
+cat: 12345testtext: No such file or directory
+root@GB:/# cat > /otherway/test.txt
+123456testtextroot@GB:/# 
+root@GB:/# cat /otherway/test.txt
+123456testtextroot@GB:/# 
+root@GB:/# 
+root@GB:/# cat //otherway/test.txt
+123456testtextroot@GB:/# 
+root@GB:/# exit
+exit
+root@mm-VB:/home/mmtester# ls
+ Dockerfile   newhardlink   shared   testfolder   username.sh   Документы   Изображения   Общедоступные   Шаблоны
+ files        print100      snap     test.txt     Видео         Загрузки    Музыка       'Рабочий стол'
+root@mm-VB:/home/mmtester# cat /test/folder/test.txt
+123456testtextroot@mm-VB:/home/mmtester# 
+root@mm-VB:/home/mmtester# docker rm $(docker ps -a -q) --force
+953813bf3d2f
+fbf560a6367e
+root@mm-VB:/home/mmtester# cat /test/folder/test.txt
+123456testtextroot@mm-VB:/hvi /root/test.txt/root/test.txt
+
+root@mm-VB:/home/mmtester# cat /root/test.txt
+iiiiiiiiiiiiiia
+root@mm-VB:/home/mmtester# docker run -it -h GB --name gb-test -v /test/folder:/otherway -v /root/test.txt:/otherway/test.txt ubuntu:22.10
+root@GB:/# cat /otherway/test.txt
+iiiiiiiiiiiiiia
+root@GB:/# exit
+exit
+root@mm-VB:/home/mmtester# docker rm $(docker ps -a -q) --force
+11bab6f1546b
+root@mm-VB:/home/mmtester# ls
+ Dockerfile   newhardlink   shared   testfolder   username.sh   Документы   Изображения   Общедоступные   Шаблоны
+ files        print100      snap     test.txt     Видео         Загрузки    Музыка       'Рабочий стол'
+root@mm-VB:/home/mmtester# docker run -it -h GB --name gb-test -v /test/folder:/otherway2 -v /root/test.txt:/otherway/test.txt ubuntu:22.10
+root@GB:/# ls
+bin   dev  home  lib32  libx32  mnt  otherway   proc  run   srv  tmp  var
+boot  etc  lib   lib64  media   opt  otherway2  root  sbin  sys  usr
+root@GB:/# ls /otherway
+test.txt
+root@GB:/# ls /otherway2
+test.txt
+root@GB:/# exit
+exit
+root@mm-VB:/home/mmtester# docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:8.0.31
+Unable to find image 'mysql:8.0.31' locally
+8.0.31: Pulling from library/mysql
+0ed027b72ddc: Pull complete 
+0296159747f1: Pull complete 
+3d2f9b664bd3: Pull complete 
+df6519f81c26: Pull complete 
+36bb5e56d458: Pull complete 
+054e8fde88d0: Pull complete 
+f2b494c50c7f: Pull complete 
+132bc0d471b8: Pull complete 
+135ec7033a05: Pull complete 
+5961f0272472: Pull complete 
+75b5f7a3d3a4: Pull complete 
+Digest: sha256:3d7ae561cf6095f6aca8eb7830e1d14734227b1fb4748092f2be2cfbccf7d614
+Status: Downloaded newer image for mysql:8.0.31
+e37374319f91c4de87018195c128f9f2d5ce53945af5c42e60ee58940891d814
+root@mm-VB:/home/mmtester# docker run --name myphp -d --link some-mysql:db -p 8081:80 phpmyadmin/phpmyadmin
+Unable to find image 'phpmyadmin/phpmyadmin:latest' locally
+latest: Pulling from phpmyadmin/phpmyadmin
+f1f26f570256: Pull complete 
+ee0a4e40ccac: Pull complete 
+5ca9fb408faa: Pull complete 
+5baa808a48ff: Pull complete 
+6e8d74e4d8ee: Pull complete 
+fac8e70fcf67: Pull complete 
+b3b7906fb177: Pull complete 
+cb4935bbeb83: Pull complete 
+c9e00ef337e3: Pull complete 
+cfe495c8d695: Pull complete 
+dcc3fd107f0c: Pull complete 
+fe3c587d1f07: Pull complete 
+677f27d94442: Pull complete 
+4d778a8cb653: Pull complete 
+5f0f7b557ecd: Pull complete 
+6ad259d60f7c: Pull complete 
+41acd705cbc4: Pull complete 
+912204d5a7e6: Pull complete 
+Digest: sha256:ed87921184b59f7d8fc85c6a5f041c22758a4d4419c0ee3bac38eb7e133eaed3
+Status: Downloaded newer image for phpmyadmin/phpmyadmin:latest
+d9c9b6984b25a8f387f77d41d3677383d942b3b054f94f309ec0772eb69ccea8
+root@mm-VB:/home/mmtester# 
+
+
