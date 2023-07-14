@@ -9,7 +9,7 @@ friends = {"Саша": ("Палатка", "Тушенка", "Лопата", "У�
 have_all = set()
 for i in friends.values():
     have_all |= set(i)
-print(f"У ребят в арсенале: {have_all}")
+print(f"У ребят в арсенале: {', '.join(have_all)}")
 
 uniques = set()
 for i in friends:
@@ -18,8 +18,10 @@ for i in friends:
         if j == i:
             continue
         temp -= set(friends[j])
+    if temp:
+        print(f"{', '.join(temp)} есть только у {i}")
     uniques |= temp
-print(f"Уникальные предметы: {uniques}")
+
 
 
 things_count = Counter(sum([list(i) for i in friends.values()], start = []))

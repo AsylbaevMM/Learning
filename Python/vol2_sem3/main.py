@@ -1,17 +1,20 @@
-# from pprint import pprint
+from pprint import pprint
 
-# my_tuple = (True, "String", 2, False, 5.16, 4-3j, [1, 4, 5], (3, 4, 6), {2, 5, 5, 7, 6}, {4, 7, 6}, 43, 'second')
+mylist = (True, "String", 2, False, 5.16, 4-3j, [1, 4, 5], (3, 4, 6), {2, 5, 5, 7, 6}, {4, 7, 6}, 43, 'second')
 
-# result_dict = {}
+result_dict = {}
 
-# for i in my_tuple:
-#     if type(i).__name__ not in result_dict:
-#         result_dict[type(i).__name__] = []
-#     result_dict[type(i).__name__].append(i)
+for i in my_tuple:
+    if type(i).__name__ not in result_dict:
+        result_dict[type(i).__name__] = []
+    result_dict[type(i).__name__].append(i)
 
-# pprint(result_dict)
+pprint(result_dict)
 
 
+mydict = ({type(mylist[j]): [mylist[i] for i in range(len(mylist)) if type(mylist[j]) == type(mylist[i])] for j in range(len(mylist))})
+
+print(mydict)
 # my_list = [2, 3, 4, 4, 4, 2, 5, 7, 6, 7, 8, 9, 6, 9]
 
 # i = 0
