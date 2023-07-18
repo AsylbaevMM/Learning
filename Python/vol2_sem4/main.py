@@ -11,18 +11,18 @@
 # print(ord('a'))
 # print(chr(99))
 
-# from pprint import pprint
+from pprint import pprint
 
-# def grants_dict(names, pays, percents):
-#     percents  = list(map(lambda x: float(x[:-1])/100, percents))
-#     return {name: pay*percent for name, pay, percent in zip(names, pays, percents) }
+def grants_dict(names, pays, percents):
+    percents  = list(map(lambda x: float(x[:-1])/100, percents))
+    return {name: pay*percent for name, pay, percent in zip(names, pays, percents) }
 
-# names = ['Иван', "Петр", "Михаил"]
-# pays = [10000, 15000, 20000]
-# percents = ['50.25%', "20%", "30.6%"]
+names = ['Иван', "Петр", "Михаил"]
+pays = [10000, 15000, 20000]
+percents = ['50.25%', "20%", "30.6%"]
 
 
-# pprint(grants_dict(names, pays, percents))   
+pprint(grants_dict(names, pays, percents))   
 
 
 
@@ -59,20 +59,20 @@
 
 
 
-numbers = [1, 2, 3]
-s = 'super'
-letter = 'a'
+# numbers = [1, 2, 3]
+# s = 'super'
+# letter = 'a'
 
-def rename():
-    variables = globals()
-    temp = {}
-    for key, value in variables.items():
-        if len(key) > 1 and key.endswith('s'):
-            temp[key[:-1]] = variables[key]
-            temp[key] = None
-    variables.update(temp)
+# def rename():
+#     variables = globals()
+#     temp = {}
+#     for key, value in variables.items():
+#         if len(key) > 1 and key.endswith('s'):
+#             temp[key[:-1]] = variables[key]
+#             temp[key] = None
+#     variables.update(temp)
         
-rename()
+# rename()
 
 
-print({key: values for key, values in locals().items() if not key.startswith('__')})
+# print({key: values for key, values in locals().items() if not key.startswith('__')})
