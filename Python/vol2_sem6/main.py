@@ -1,7 +1,5 @@
-from my_games.questions import more_quests, how_many_answers
+from my_games.chess import *
 
-more_quests(3)
+print(check_positions())
 
-how_many_answers()
-
-
+four_possible()
