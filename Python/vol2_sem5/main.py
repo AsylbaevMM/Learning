@@ -51,6 +51,7 @@ def simple_generator(n):
         for i in range(2, current//2+1):
             if not current % i:
                 flag = False
+                break
         current += 1
         if flag:
             count += 1
