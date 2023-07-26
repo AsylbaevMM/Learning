@@ -10,7 +10,8 @@
 from string import ascii_letters
 from random import randint, sample, randbytes, choice
 import os
-
+from re import findall
+from time import sleep
 
 
 def makefile(extention, smallest=6, largest=30, min_bytes=256, max_bytes=4096, count=42):
@@ -43,5 +44,41 @@ def replace_files():
             os.mkdir(extention)
         os.replace(file, os.path.join(os.getcwd(), extention, file))
 
-#makefiles(mp3=5, txt=3, wav=4)
-replace_files()
+
+
+
+############## homework ################
+
+def rename_files(new_name='', nums_count=3, old_extention='', new_extention='', name_slice=None, ):
+    # делаем проверку на диапазон сохраняемого имени
+    if name_slice and len(findall(r'\d+', str(name_slice))) > 3:
+        raise ValueError('Неверные аргументы в диапазоне сохраняемого оригинального имени')
+    count = 1
+    oldname_part = ''
+    for file in os.listdir():
+        # проверка, если задано старое расширение файла, пропускаем все неподходящие
+        if old_extention and file.split('.')[-1] != old_extention:
+            continue
+        # если задан диапазон сохраняемого имени вытаскиваем его переводя строку name_slice в slice-объект
+        if name_slice:
+            oldname_part = os.path.basename(file).rsplit('.')[0][slice(*[int(i) for i in findall(r'\d+', str(name_slice))])]
+        # набиваем в номер нули до получения нужного размера
+        number = str(count).rjust(nums_count, '0')
+        # ставим в расширение новое расширение, если оно не пустое, иначе берем старое
+        result_extention = new_extention or file.split('.')[-1]
+        # переименовываем файл и увеличиваем счетчик файлов
+        os.rename(file, f"{oldname_part}{new_name}{number}.{result_extention}")
+        count += 1
+
+
+if __name__ == "__main__":
+    # создание случайных файлов
+    makefiles(mp3 = 10, txt=5, torrent= 5)
+    sleep(10)
+
+    # переименование txt файлов с изменением расширения и сохранением диапазона старого имени
+    rename_files('test', old_extention='txt', new_extention='word', name_slice=[2, 5])
+    sleep(10)
+
+    # переименование всех файлов с сохранением старого расширения без сохранения диапазона старого имени
+    rename_files('test1')
