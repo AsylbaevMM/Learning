@@ -1,0 +1,44 @@
+{
+     "C:\\Users\\asylb\\OneDrive\\Рабочий стол\\Learning\\Python\\vol2_sem8": {
+          "a_type": "directory",
+          "b_size": 3662,
+          "childs": {
+               "example": {
+                    "a_type": "directory",
+                    "b_size": 79,
+                    "childs": {
+                         "ex.py": {
+                              "a_type": "file",
+                              "b_size": 16
+                         },
+                         "now": {
+                              "a_type": "directory",
+                              "b_size": 29,
+                              "childs": {
+                                   "file.json": {
+                                        "a_type": "file",
+                                        "b_size": 29
+                                   }
+                              }
+                         },
+                         "what.txt": {
+                              "a_type": "file",
+                              "b_size": 34
+                         }
+                    }
+               },
+               "main.py": {
+                    "a_type": "file",
+                    "b_size": 1696
+               },
+               "result.csv": {
+                    "a_type": "file",
+                    "b_size": 620
+               },
+               "result.json": {
+                    "a_type": "file",
+                    "b_size": 1267
+               }
+          }
+     }
+}
