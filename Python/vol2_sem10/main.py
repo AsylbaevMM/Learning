@@ -44,14 +44,45 @@ class Raven(Animal):
     def fly_around_corpse(self):
         print('oooh, meat....')
 
-fish = Fish('Nemo', 2, 'silver', 'bul-bul')
-dog = Dog('Spark', 5, 'pitbull', 'bark!')
-bird = Raven('Qarasique', 6, 'white', 'bravo!')
+# fish = Fish('Nemo', 2, 'silver', 'bul-bul')
+# dog = Dog('Spark', 5, 'pitbull', 'bark!')
+# bird = Raven('Qarasique', 6, 'white', 'bravo!')
+
+# animals = [fish, dog, bird]
+
+# for i in animals:
+#     i.make_voice()
+
+# fish.swim()
+# dog.bark()
+# bird.fly_around_corpse()
+
+
+################################# HW ###################################
+
+# Создал фабрику, которая может создавать любой класс, доступный ей в пространстве имен
+
+class Factory:
+    def __init__(self):
+        print("Factory is started.")
+
+    def make_class(self, class_name, *args):
+        obj = eval(f"{class_name}({', '.join(map(repr, args))})")
+        return obj
+    
+
+
+factory = Factory()
+dog = factory.make_class('Dog', 'Spark', 5, 'pitbull', 'bark!')
+fish = factory.make_class('Fish', 'Nemo', 2, 'silver', 'bul-bul')
+bird = factory.make_class('Raven', 'Qarasique', 6, 'white', 'bravo!')
+
 
 animals = [fish, dog, bird]
 
 for i in animals:
     i.make_voice()
+
 
 fish.swim()
 dog.bark()
