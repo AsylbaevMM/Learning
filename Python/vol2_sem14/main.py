@@ -1,3 +1,6 @@
+import doctest
+
+
 class MatrixError(Exception):
     pass
 
@@ -31,6 +34,28 @@ class MatrixMulSizeError(MatrixError):
 
 
 class Matrix:
+    '''
+    >>> print(Matrix([[1,2,3], [4, 5, 6], [7, 8, 9]]) + Matrix([[9,8,7], [6,5,4], [3,2,1]]))
+     10 10 10
+     10 10 10
+     10 10 10
+    >>> print(Matrix([[1,2], [3,4], [5, 6]]) * Matrix([[1, 2, 3], [4, 5, 6]]))
+      9 12 15
+     19 26 33
+     29 40 51
+    >>> print(Matrix([[1,2,3], [4, 5, 6], [7, 8, 9]]) == Matrix([[1,2,3], [4, 5, 6], [7, 8, 9]]))
+    True
+    >>> print(Matrix([[1,2,3], [4, 5, 6], [7, 8, 9]]) != Matrix([[1,2,3], [4, 5, 6], [7, 8, 9]]))
+    False
+    >>> matrix = Matrix([[1,2,3], [4, 5, 6], [7, 8]])
+    Traceback (most recent call last):
+    ...
+    NotRectangularMatrixError: Это не прямоугольная матрица! Длины строк матрицы: 3, 3, 2.
+    >>> print(Matrix([[1,2], [3,4], [5, 6]]) * Matrix([[1, 2, 3], [4, 5, 6], [4, 7, 8]]))
+    Traceback (most recent call last):
+    ...
+    MatrixMulSizeError: Умножение матриц невозможно! Число столбцов первой матрицы (2) должно быть равно числу строк второй матрицы (3).
+    '''
     def __init__(self, matrix):
         if any([len(matrix[0]) != len(i) for i in matrix[1:]]):
             raise NotRectangularMatrixError(matrix)
@@ -73,23 +98,6 @@ class Matrix:
             return Matrix(temp_matrix)
         return NotImplemented
  
-try:
-    matrix = Matrix([[1,2,3], [4, 5, 6], [7, 8]])
-except NotRectangularMatrixError as e:
-    print(e)
+if __name__ == "__main__":
+    doctest.testmod(verbose=True)
 
-matrix_1 = Matrix([[1,2,3], [4, 5, 6], [7, 8, 9]])
-matrix_2 = Matrix([[9,8,7], [6,5,4]])
-
-try:
-    temp = matrix_1 + matrix_2
-except MatrixAddSizeError as e:
-    print(e)
-
-matrix_3 = Matrix([[1,2], [3,4], [5, 6]])
-matrix_4 = Matrix([[1, 2, 3], [4, 5, 6], [4, 7, 8]])
-
-try:
-    temp = matrix_3 * matrix_4
-except MatrixMulSizeError as e:
-    print(e)
