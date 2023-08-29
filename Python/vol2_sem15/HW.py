@@ -37,4 +37,4 @@ except:
     print(f"{num} is not roman number")
 
 
-# Для запуска с аргументами: -r MMCF
+# Для запуска с аргументами: -r MMCV
