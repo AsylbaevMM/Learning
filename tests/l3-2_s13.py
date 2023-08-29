@@ -5,7 +5,7 @@ import time
 
 class TestAbs(unittest.TestCase):
     def test_abs1(self):
-        browser = webdriver.Chrome()
+        browser = webdriver.Chrome(r"C:\chromedriver\chromedriver.exe")
         browser.get('http://suninjuly.github.io/registration1.html')
     
         input1 = browser.find_element(By.XPATH, "/html/body/div/form/div[1]/div[1]/input")
