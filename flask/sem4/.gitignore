@@ -1,0 +1,12 @@
+.idea/
+__pycache__/
+Lib/
+Scripts/
+static/
+pyvenv.cfg
+var/
+include/
+async_images/
+multi_images/
+threads_images/
+sand.py
