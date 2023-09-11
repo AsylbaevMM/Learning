@@ -8,6 +8,7 @@ from uuid import uuid4
 import time
 import sys
 
+IMG_COUNT = 10
 
 LINK = sys.argv
 if len(LINK) > 1:
@@ -46,7 +47,7 @@ async def save_multiple_images(filename):
     async with ClientSession() as session:
         tasks = []
 
-        for link in sample(data, min(10, len(data))):
+        for link in sample(data, min(IMG_COUNT, len(data))):
             tasks.append(
                 save_image(link)
             )

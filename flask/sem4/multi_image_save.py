@@ -4,6 +4,8 @@ import time
 import sys
 from random import sample
 
+IMG_COUNT = 10
+
 LINK = sys.argv
 if len(LINK) > 1:
     LINK = LINK[1]
@@ -27,7 +29,7 @@ with open(LINK, 'r', encoding='utf-8') as file:
 
 if __name__ == '__main__':
     start_time = time.time()
-    for url in sample(links, min(10, len(links))):
+    for url in sample(links, min(IMG_COUNT, len(links))):
         process = Process(target=download, args=(url,))
         processes.append(process)
         process.start()
