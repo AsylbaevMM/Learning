@@ -1,3 +1,1 @@
-data = [...]
 
-print(len(data))
