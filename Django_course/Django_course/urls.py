@@ -1,5 +1,5 @@
 """
-URL configuration for Django_course project.
+URL configuration for django_course project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -19,5 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('sem1hw/', include('sem1_HW_app.urls')),
+    path('hw2/', include('hw2.urls')),
+
 ]
