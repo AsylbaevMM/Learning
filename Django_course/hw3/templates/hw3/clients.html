@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} Clients {% endblock title %}
+
+{% block content %}
+<h1>Выберите клиента:</h1>
+{% if clients %}
+    {% for client in clients %}
+        <h2>
+            <a href="{{ client.get_absolute_url }}">{{ client }}</a>
+        </h2>
+    {% endfor %}
+{% else %}
+    <h2>No clients yet :(</h2>
+{% endif %}
+    {% include "pagination.html" with page=clients %}
+{% endblock %}

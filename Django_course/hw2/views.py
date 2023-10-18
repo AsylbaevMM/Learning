@@ -3,4 +3,4 @@ from django.http import HttpResponse
 
 
 def hello(request):
-    return HttpResponse('2nd HW')
+    return HttpResponse("Hello, it's 2nd homework, use 'management' folder.")
