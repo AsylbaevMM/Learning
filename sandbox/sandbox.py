@@ -1,11 +1,29 @@
-n = int(input())
+import openpyxl
+import json
+ 
+wb = openpyxl.load_workbook('Role.xlsx')
 
-res = 0
+sheet = wb.active
 
-while n > 0:
+perms = {}
 
-  n = n // 5
 
-  res += n
+for i in sheet:
+    if i[2].value not in perms:
+        perms[i[2].value] = []
+    perms[i[2].value].append(i[3].value.split(' DMO ')[-1])
 
-print(res)
+with open('rolesforperms.json', 'w', encoding='utf-8') as file:
+    json.dump(perms, file, indent=2)
+
+
+roles = {}
+
+
+for i in sheet:
+    if i[3].value.split(' DMO ')[-1] not in roles:
+        roles[i[3].value.split(' DMO ')[-1]] = []
+    roles[i[3].value.split(' DMO ')[-1]].append(i[2].value)
+
+with open('permsforroles.json', 'w', encoding='UTF-8') as file:
+    json.dump(roles, file, indent=2)
