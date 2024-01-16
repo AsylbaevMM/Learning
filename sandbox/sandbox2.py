@@ -1,15 +1,21 @@
-from pprint import pprint
 
-import openpyxl
 
-wb = openpyxl.load_workbook('roles.xlsx')
 
-sheet = wb.active
 
-result = {}
+def permission(permission):
 
-for row in sheet:
-    if row[4].value != 'no':
-        result[row[2].value] = row[5].value
+    def has_permission(self, request, view):
+        user = request.user
+        if user.is_superuser:
+            return True
+        return user.has_perm(self.__class__.__name__) or self.__class__.__name__ in user.groups.all().values_list('permissions__codename', flat = True)
+    
+    cls = type(f'{permission}', (), {'has_perm': has_permission})('')
+    return cls
 
-pprint(result)
+
+obj = permission("Permission")
+
+print(obj.has_perm())
+
+
